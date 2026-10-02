@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: ordely-demo
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --omit=dev
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ENABLE_DEMO_RESET
+        value: "true"

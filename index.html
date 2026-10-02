@@ -1,0 +1,1890 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#087f70">
+  <meta name="description" content="Ordely : démo gratuite de confirmation de commandes, mains libres, avec transcription en direct.">
+  <title>Ordely — Conversation en direct</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTgiIGZpbGw9IiMwODdmNzAiLz48cGF0aCBkPSJNMTkgMjJ2MjBNMjYgMTZ2MzJNMzMgMjV2MTRNNDAgMTl2MjZNNDcgMjZ2MTIiIHN0cm9rZT0iI2Y3ZmZmNyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4K" type="image/svg+xml">
+  <style>:root{--ink:#172f36;--muted:#627479;--green:#087f70;--darkgreen:#066556;--line:#e0e7e3;--bg:#f5f7f3;--white:#fff;--danger:#ac3c2c;--radius:20px}*{box-sizing:border-box}html{color-scheme:light}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,select,textarea{font:inherit}button,a,input,select,summary{ -webkit-tap-highlight-color:transparent}button{cursor:pointer;touch-action:manipulation}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #80caba;outline-offset:3px}[hidden]{display:none!important}.shell{max-width:1230px;margin:auto;padding:0 28px}.header{height:94px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none;font-size:29px;font-weight:800;letter-spacing:-1px}.brand-caption{display:block;font-size:11px;color:var(--muted);letter-spacing:.2px;font-weight:500;margin-top:-4px}.version{font-size:10px;letter-spacing:1.5px;font-weight:700;display:flex;align-items:center;gap:8px;background:#fff;padding:8px 12px;border-radius:30px;border:1px solid var(--line)}.dot{height:6px;width:6px;border-radius:50%;background:var(--green)}.intro{display:flex;justify-content:space-between;align-items:flex-end;padding:34px 0 29px;gap:20px}.eyebrow{font-size:10px;font-weight:750;letter-spacing:2px;color:var(--green)}h1{font-size:38px;font-weight:750;line-height:1.2;margin:9px 0 9px;letter-spacing:-1.5px}h2{font-size:16px;margin:0;font-weight:750;letter-spacing:-.2px}.intro p{color:var(--muted);font-size:14px;margin:0;max-width:570px}.intro-badges{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;padding-bottom:3px}.intro-badges span{background:#e6efdf;color:#426543;padding:5px 9px;border-radius:30px;font-size:10px;font-weight:650;white-space:nowrap}.workspace{display:grid;grid-template-columns:300px minmax(0,1fr);gap:22px;align-items:start}.sidebar{display:grid;gap:17px}.card{border:1px solid var(--line);border-radius:var(--radius);background:var(--white);box-shadow:0 4px 18px #193f2410}.order-card,.settings-card,.scenarios{padding:23px}.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.tag{font-size:9px;color:#688074;background:#eef3ee;border-radius:5px;padding:4px 6px;letter-spacing:.8px}.field-label{font-size:11px;font-weight:650;color:var(--muted);display:block;margin:14px 0 6px}select{border:1px solid #d7e1dc;border-radius:9px;background:#fafbf9;color:var(--ink);width:100%;padding:11px 8px;min-height:44px;font-size:12px}.customer{display:flex;gap:12px;align-items:center;margin:22px 0 17px}.avatar{border-radius:50%;height:40px;width:40px;display:grid;place-items:center;background:#eef2e8;font-size:13px;font-weight:700;color:#647643;flex-shrink:0}.customer strong{display:block;font-size:14px}.customer div>span{font-size:12px;color:var(--muted)}.products{display:grid;gap:9px;padding-bottom:17px;border-bottom:1px solid var(--line)}.product{display:flex;align-items:center;gap:9px;background:#f7f9f6;padding:10px;border-radius:9px}.product-icon{display:grid;place-items:center;flex-shrink:0;width:32px;height:38px;border:1px solid #dfe5da;border-radius:6px;color:#57756b;background:#fff;font-size:20px}.product strong{display:block;font-size:12px}.product small{display:block;font-size:11px;color:var(--muted)}.order-details{margin:15px 0;display:grid;grid-template-columns:80px minmax(0,1fr);gap:12px;font-size:12px;align-items:start}.order-details dt{color:var(--muted)}.order-details dd{margin:0;overflow-wrap:anywhere}.order-state{font-size:9px;letter-spacing:.4px;color:var(--green);background:#e8f5ef;padding:3px 6px;border-radius:5px;display:inline-block}.total{padding-top:15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:12px}.total strong{font-size:24px;color:var(--ink);font-weight:750;letter-spacing:-.5px}.total small{font-size:12px;font-weight:500;letter-spacing:0}.storage-note{font-size:10px;color:var(--muted);margin:10px 0 0}.check{display:flex;align-items:flex-start;gap:9px;font-size:12px;margin-top:15px;cursor:pointer}.check input{margin:3px 0 0;width:15px;height:15px;accent-color:var(--green);flex-shrink:0}.slider-label{display:flex;justify-content:space-between}.slider-label span{font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--green);height:20px;margin:0}.small{font-size:11px}.muted{color:var(--muted)}.settings-card p{line-height:1.5;margin:6px 0 0}.example{font-size:12px;text-align:left;width:100%;padding:10px 0;background:transparent;border:0;color:var(--green);border-bottom:1px solid var(--line);line-height:1.7;overflow-wrap:anywhere}.scenarios h2{margin-bottom:8px}.scenarios p{margin-bottom:0}.conversation{padding:24px;min-width:0}.conversation-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:21px}.conversation-heading .small{display:block;margin-top:3px}.icon-button,.secondary,.link-button{color:#355b55;background:#f0f5ef;border:1px solid #dfe8df;border-radius:9px;padding:9px 12px;font-size:11px;font-weight:650;min-height:39px}.icon-button{white-space:nowrap;font-size:10px}.session-panel{border-radius:14px;background:#f4f8f3;border:1px solid #e1eade;padding:17px}.status-line{display:flex;align-items:center;gap:9px;font-size:13px}.status-dot{background:#8d9b91;width:8px;height:8px;border-radius:50%;flex-shrink:0}.status-dot[data-state=listening]{background:#15986c;box-shadow:0 0 0 4px #15986c17}.status-dot[data-state=agent]{background:#b99c45;box-shadow:0 0 0 4px #b99c4519}.status-dot[data-state=error]{background:var(--danger)}.status-dot[data-state=starting]{animation:pulse 1s infinite;background:#9b9444}.session-panel>p{font-size:11px;color:var(--muted);margin:6px 0 14px}.controls{display:flex;flex-wrap:wrap;gap:8px}.primary,.stop,.danger,.send-button{border:0;border-radius:9px;padding:11px 16px;font-weight:650;font-size:12px;min-height:43px}.primary,.send-button{background:var(--green);color:#fff}.primary:hover,.send-button:hover{background:var(--darkgreen)}.stop{color:#895349;background:#f3eae4;border:1px solid #eadbd2}.danger{color:var(--danger);background:#faece8;border:1px solid #f0d4cb}.mic-strip{display:flex;align-items:center;gap:12px;margin-top:16px}.mic-label{display:flex;align-items:center;gap:7px;font-size:10px;color:var(--muted);flex-shrink:0}.mic-label #micIcon{color:var(--green)}.meter{flex:1;height:5px;border-radius:4px;background:#dbe5dc;overflow:hidden;min-width:40px}.meter>span{display:block;min-height:100%;width:0;background:var(--green);transition:width .09s linear;border-radius:4px}.link-button{background:transparent;border:none;padding:5px;font-size:10px;min-height:28px;text-decoration:underline;text-underline-offset:3px}.capabilities{display:flex;flex-wrap:wrap;gap:6px 15px;border-top:1px solid #dfe8dd;padding-top:11px;margin-top:12px;font-size:9px;color:#748779}.capabilities b{color:#49655b;font-size:9px;margin-left:3px;font-weight:700}.chat{height:430px;min-height:350px;overflow:auto;overscroll-behavior:contain;padding:20px 0 16px;scrollbar-width:thin;scrollbar-color:#d4ded6 transparent}.empty-chat{min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 16px;color:var(--muted)}.empty-chat strong{font-size:14px;color:#476b62;margin-top:17px}.empty-chat p{font-size:12px;line-height:1.8;max-width:380px}.empty-chat>span{font-size:10px;color:#96a198}.wave{display:flex;align-items:center;gap:4px;height:38px}.wave i{width:4px;border-radius:4px;background:#9bc4ad;height:17px}.wave i:nth-child(2),.wave i:nth-child(4){height:28px}.wave i:nth-child(3){height:38px;background:#5b9b83}.message{max-width:90%;margin-bottom:18px;animation:appear .15s ease-out;overflow-wrap:anywhere}.message .meta{display:flex;align-items:center;gap:7px;font-size:9px;color:#778a84;margin:0 0 5px}.message .meta strong{color:#49685e;letter-spacing:.2px;font-size:10px}.message .meta time{margin-left:auto}.message-body{padding:14px 16px;background:#eef5e8;border-radius:2px 14px 14px 14px;line-height:1.8;font-size:14px;white-space:pre-wrap;color:#294f41}.message.user{margin-left:auto;max-width:87%}.message.user .message-body{background:#f1f4f3;color:#2e4650;border-radius:14px 2px 14px 14px}.message.partial .message-body{border:1px dashed #afd0c2;background:#f7fbf8;color:#718b7f;font-style:italic}.message.partial .meta .message-state{color:var(--green)}.message.interrupted .message-state{color:#a0783c}.message.interrupted .message-body{opacity:.82}.message.system .message-body{background:#fbf2e8;color:#946832;font-size:12px;padding:10px 13px}.message.system{max-width:100%}.composer{display:flex;gap:10px;align-items:stretch;padding:12px 0 0;border-top:1px solid var(--line)}textarea{width:100%;min-height:61px;max-height:180px;resize:vertical;border:1px solid #dce5df;border-radius:10px;padding:10px 12px;background:#fcfdfb;color:var(--ink);font-size:12px;line-height:1.5}textarea::placeholder{color:#8b9991}.send-button{align-self:stretch;white-space:nowrap;padding:10px 14px}.conversation-footnote{font-size:10px;line-height:1.6;color:#87978d;margin:12px 0 0}.diagnostic-card{padding:22px 25px;margin-top:23px}.diagnostic-heading{display:flex;justify-content:space-between;align-items:center;gap:20px}.diagnostic-heading p{margin:4px 0}.test-controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}.test-controls button{font-size:11px}.diagnostic-card details{border-top:1px solid var(--line);padding-top:13px;margin-top:15px;font-size:12px}.diagnostic-card summary{color:var(--green);cursor:pointer;font-size:11px;font-weight:650}.diagnostic-list{display:grid;grid-template-columns:180px minmax(0,1fr);gap:7px;font-size:11px;margin-top:18px}.diagnostic-list dt{color:var(--muted)}.diagnostic-list dd{margin:0;overflow-wrap:anywhere}pre{background:#f5f8f3;border:1px solid #e0e7db;border-radius:8px;padding:12px;font:10px/1.7 ui-monospace,monospace;max-height:170px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere}.diagnostic-actions{display:flex;gap:9px;flex-wrap:wrap}.diagnostic-actions button{font-size:11px}footer{display:flex;justify-content:space-between;gap:20px;color:#61786f;font-size:10px;padding:25px 0 30px}footer>span:last-child{color:#819188;text-align:right}.notice,.alert{border:1px solid #e4d9b8;background:#faf6e9;border-radius:10px;padding:12px 15px;margin-top:16px;font-size:12px;color:#866729}.notice a{color:var(--green);font-weight:650}.alert{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;background:#fff0e9;color:#994f34;border-color:#efd4c6;margin:13px 0 0}.alert .link-button{flex-shrink:0;color:inherit}.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}@keyframes pulse{50%{opacity:.4}}@keyframes appear{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}@media(max-width:950px){.intro-badges{display:none}.workspace{grid-template-columns:265px minmax(0,1fr);gap:16px}.order-card,.settings-card,.scenarios{padding:18px}.conversation{padding:20px}.diagnostic-heading{align-items:flex-start}.test-controls{max-width:350px}.shell{padding:0 20px}}@media(max-width:700px){.shell{padding:0 14px}.header{height:78px}.brand{font-size:26px}.brand img{width:37px;height:37px}.brand-caption{font-size:10px}.version{padding:6px 9px;font-size:9px}.intro{padding:25px 0 23px}h1{font-size:32px}.intro p{font-size:12px}.workspace{display:flex;flex-direction:column;gap:16px}.sidebar{display:contents}.conversation{width:100%;order:0;padding:16px;border-radius:16px}.order-card{width:100%;order:1;padding:20px}.settings-card{width:100%;order:2;padding:20px}.scenarios{width:100%;order:3}.conversation-heading{margin-bottom:14px}.session-panel{padding:14px}.status-line{font-size:12px}.controls{gap:6px}.controls button{font-size:11px;padding:10px 12px}.controls .secondary{min-height:43px}.mic-strip{gap:9px}.mic-label{font-size:9px}.capabilities{font-size:8px;gap:6px 10px}.capabilities b{font-size:8px}.chat{height:410px;min-height:330px}.message{max-width:95%}.message-body{font-size:14px;padding:12px 13px}.composer{gap:7px;flex-wrap:wrap}.composer textarea{min-width:0;flex:1;min-height:62px;font-size:16px}.send-button{font-size:11px;padding:8px 10px}.conversation-footnote{font-size:9px}.diagnostic-card{padding:19px 16px;border-radius:16px;margin-top:17px}.diagnostic-heading{flex-direction:column;gap:12px}.test-controls{justify-content:flex-start;max-width:none}.diagnostic-list{grid-template-columns:112px minmax(0,1fr);gap:9px}footer{flex-direction:column;gap:5px;padding:22px 2px}footer>span:last-child{text-align:left}.notice{font-size:11px}.alert{font-size:11px}.section-title{margin-bottom:10px}.products{grid-template-columns:repeat(auto-fit,minmax(135px,1fr))}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="header">
+      <a class="brand" href="./" aria-label="Ordely, accueil"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTgiIGZpbGw9IiMwODdmNzAiLz48cGF0aCBkPSJNMTkgMjJ2MjBNMjYgMTZ2MzJNMzMgMjV2MTRNNDAgMTl2MjZNNDcgMjZ2MTIiIHN0cm9rZT0iI2Y3ZmZmNyIgc3Ryb2tlLXdpZHRoPSI0IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48L3N2Zz4K" alt="" width="42" height="42"><span>ordely<span class="brand-caption">Votre commande, simplement.</span></span></a>
+      <span class="version"><span class="dot"></span> DÉMO V10</span>
+    </header>
+    <div class="notice" id="frameNotice" hidden>Pour autoriser le micro, ouvrez cette application dans un onglet normal. <a id="standalone" target="_blank" rel="noopener">Ouvrir l’application ↗</a></div>
+    <div class="notice warning" id="environmentNotice" hidden></div>
+    <section class="intro">
+      <div><span class="eyebrow">AGENT VOCAL · TUNISIE</span><h1>On en parle ?</h1><p>Un clic pour démarrer. Ensuite, parlez naturellement, même pendant la réponse de l’agent.</p></div>
+      <div class="intro-badges"><span>Écoute continue</span><span>Texte en direct</span><span>Interruption</span></div>
+    </section>
+    <div class="workspace">
+      <aside class="sidebar">
+        <section class="card order-card">
+          <div class="section-title"><h2>La commande</h2><span class="tag">FICTIVE</span></div>
+          <label class="field-label" for="orders">Choisir un scénario</label><select id="orders" disabled><option>Chargement…</option></select>
+          <div class="customer"><span class="avatar" id="customerInitials">AB</span><div><strong id="customerName">—</strong><span id="customerPhone">—</span></div></div>
+          <div id="products" class="products"></div>
+          <dl class="order-details"><dt>Adresse</dt><dd id="address" dir="auto">—</dd><dt>Autre numéro</dt><dd id="altPhone">—</dd><dt>État</dt><dd><span class="order-state" id="orderState">—</span></dd></dl>
+          <div class="total"><span>Total</span><strong id="total">— <small>DT</small></strong></div>
+          <p class="storage-note" id="storageNote">Données de démonstration uniquement.</p>
+        </section>
+        <section class="card settings-card">
+          <h2>Réglages de la voix</h2>
+          <label class="field-label" for="mode">Mode</label><select id="mode"><option value="browser">Gratuit · voix du navigateur</option><option value="streaming" disabled>Streaming · serveur requis</option></select>
+          <label class="field-label" for="language">Langue de l’essai</label><select id="language"><option value="ar-TN">Derja tunisienne / ar-TN</option><option value="fr-FR">Français</option></select>
+          <label class="check"><input type="checkbox" id="voiceEnabled" checked><span>Lire les réponses à voix haute</span></label>
+          <label class="check"><input type="checkbox" id="bargeIn" checked><span>Interruption locale rapide</span></label>
+          <label class="field-label slider-label" for="sensitivity">Seuil d’interruption <span id="thresholdValue">0,018</span></label><input id="sensitivity" type="range" min="0.006" max="0.08" value="0.018" step="0.002" aria-describedby="sensitivityHint">
+          <p class="small muted" id="sensitivityHint">Montez le seuil si l’agent se coupe tout seul. Un casque est recommandé contre l’écho.</p>
+        </section>
+        <section class="card scenarios">
+          <h2>À essayer</h2>
+          <button class="example" data-text="La la, estanna, l’adresse تبدلت">« La la, estanna… l’adresse تبدلت »</button>
+          <button class="example" data-text="خليلي Huawei ونحي Oppo">« خليلي Huawei ونحي Oppo »</button>
+          <button class="example" data-text="قداش المجموع؟">« قداش المجموع؟ »</button>
+          <p class="small muted">Ces boutons remplissent le champ texte. Ils ne simulent pas une reconnaissance vocale.</p>
+        </section>
+      </aside>
+      <main class="conversation card">
+        <div class="conversation-heading"><div><h2>Conversation en direct</h2><span class="small muted" id="sessionMode">Mode gratuit, sans clé API</span></div><button class="icon-button" id="export" title="Télécharger la transcription" aria-label="Télécharger la transcription" disabled>↓ Texte</button></div>
+        <div class="session-panel">
+          <div class="status-line"><span class="status-dot" id="statusDot"></span><strong id="status" role="status" aria-live="polite">Chargement de la démo…</strong></div>
+          <p id="statusDetail">Préparation des commandes et des capacités de votre navigateur.</p>
+          <div class="controls"><button class="primary" id="start" disabled>▶ Démarrer</button><button class="secondary" id="textOnly" disabled>Essayer en texte</button><button class="stop" id="stop" disabled>■ Arrêter</button></div>
+          <div class="mic-strip"><div class="mic-label"><span id="micIcon">◉</span><span id="micLabel">Micro désactivé</span></div><div class="meter" id="meter" role="meter" aria-label="Niveau du microphone" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="meterFill"></span></div><button class="link-button" id="micToggle" disabled>Couper</button></div>
+          <div class="capabilities"><span>Micro <b id="captureStatus">OFF</b></span><span>Reconnaissance <b id="recognitionStatus">OFF</b></span><span>Agent <b id="outputStatus">SILENCIEUX</b></span></div>
+        </div>
+        <div class="alert" id="errorBox" role="alert" hidden><span id="errorText"></span><button id="dismissError" class="link-button" aria-label="Fermer le message">✕</button></div>
+        <div id="chat" class="chat" role="log" aria-label="Transcription de la conversation" aria-live="polite" aria-relevant="additions text">
+          <div class="empty-chat" id="emptyChat"><div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div><strong>Ordely est prêt à vous écouter.</strong><p>Démarrez, autorisez le micro et attendez le salut de l’agent.<br>Votre parole et sa réponse apparaîtront ici.</p><span>Le micro est arrêté pour le moment.</span></div>
+        </div>
+        <div class="composer"><label class="sr-only" for="input">Votre message texte</label><textarea id="input" rows="2" maxlength="2000" placeholder="Le texte fonctionne aussi. Écrivez votre message…"></textarea><button id="send" class="send-button" aria-label="Envoyer le message" disabled>Envoyer ↗</button></div>
+        <p class="conversation-footnote">Une première autorisation est nécessaire. Ensuite, aucun bouton « Parler » à maintenir. Le texte provisoire peut être corrigé par le service vocal.</p>
+      </main>
+    </div>
+    <section class="card diagnostic-card">
+      <div class="diagnostic-heading"><div><h2>Tout est bien branché ?</h2><p class="small muted">Vérifiez le micro et le son avant le premier essai sur téléphone.</p></div><div class="test-controls"><button id="testMic" class="secondary">🎙 Tester le micro</button><button id="testSound" class="secondary">♪ Tester le son</button><button id="resumeListening" class="secondary" disabled>Relancer l’écoute</button></div></div>
+      <details id="diagnostics"><summary>Diagnostic et limites du mode gratuit</summary><dl id="diagnosticList" class="diagnostic-list"></dl><p class="small muted">Le mode gratuit utilise la reconnaissance du navigateur, qui peut transmettre l’audio à son fournisseur. Ni une voix tunisienne native ni l’écoute simultanée parfaite sur tous les téléphones ne sont garanties. Les données de commande restent sur cet appareil en mode GitHub Pages. Aucun enregistrement audio n’est conservé par Ordely.</p><pre id="eventLog" aria-label="Journal technique"></pre><div class="diagnostic-actions"><button id="reload" class="secondary">Recharger la dernière version</button><button id="reset" class="danger">Réinitialiser les commandes de démo</button></div></details>
+    </section>
+    <footer><span>ordely <span class="muted">/ démo de confirmation de commandes</span></span><span>Données fictives · Aucun appel réel · Pas de LLM dans le moteur gratuit</span></footer>
+  </div>
+  <script>
+globalThis.__ORDELY_PHONE__ = true;
+globalThis.__ORDELY_SEED__ = {"customers":[{"id":"C001","name":"Ahmed Ben Ali","phone":"20123456","address":"12 نهج سيبيريا، أريانة","altPhone":""},{"id":"C002","name":"Sarra Trabelsi","phone":"21456789","address":"8 نهج مرسيليا، تونس","altPhone":""},{"id":"C003","name":"Mohamed Gharbi","phone":"98222333","address":"24 شارع الحبيب بورقيبة، سوسة","altPhone":""}],"products":[{"id":"P007","name":"Huawei P30 Pro","variants":["Mystic Black","blanc"],"sizes":[],"price":2799},{"id":"P008","name":"Oppo Reno 5","variants":["bleu","noir"],"sizes":[],"price":799},{"id":"P001","name":"Casque audio","variants":["rouge","noir"],"sizes":["S","M","L"],"price":189},{"id":"P002","name":"Sneakers Urban","variants":["blanc","noir"],"sizes":["38","39","40","41","42","43"],"price":159}],"orders":[{"id":"ORD-DEMO-MULTI","customerId":"C001","items":[{"productId":"P007","qty":1,"variant":"Mystic Black","size":""},{"productId":"P008","qty":1,"variant":"bleu","size":""}],"status":"NEW"},{"id":"ORD-2002","customerId":"C002","items":[{"productId":"P001","qty":1,"variant":"rouge","size":"M"}],"status":"NEW"},{"id":"ORD-2003","customerId":"C003","items":[{"productId":"P002","qty":2,"variant":"blanc","size":"42"}],"status":"NEW"}]}
+;
+globalThis.__ORDELY_WORKLET_URL__ = URL.createObjectURL(new Blob(["// Rééchantillonnage continu : aucune dérive entre les blocs 44,1 / 48 kHz.\nclass PCMResampler {\n  constructor(inputRate, outputRate = 16000) {\n    if (inputRate < outputRate || outputRate <= 0) throw new Error('Fréquences non prises en charge.');\n    this.ratio = inputRate / outputRate;\n    this.remaining = this.ratio; this.sum = 0; this.weight = 0;\n  }\n  push(input) {\n    const output = [];\n    for (const sample of input) {\n      let available = 1;\n      while (available > 1e-9) {\n        const take = Math.min(available, this.remaining);\n        this.sum += sample * take; this.weight += take;\n        this.remaining -= take; available -= take;\n        if (this.remaining < 1e-9) {\n          output.push(Math.max(-1, Math.min(1, this.sum / this.weight)));\n          this.remaining = this.ratio; this.sum = 0; this.weight = 0;\n        }\n      }\n    }\n    return Float32Array.from(output);\n  }\n}\nfunction toPCM16(input) {\n  const buffer = new ArrayBuffer(input.length * 2), view = new DataView(buffer);\n  input.forEach((sample, i) => { const x = Math.max(-1, Math.min(1, sample)); view.setInt16(i * 2, Math.round(x * (x < 0 ? 32768 : 32767)), true); });\n  return buffer;\n}\nclass VoiceActivityDetector {\n  constructor({ threshold = 0.018, attackMs = 120, releaseMs = 400 } = {}) {\n    this.threshold = threshold; this.attackMs = attackMs; this.releaseMs = releaseMs;\n    this.noise = 0.001; this.attack = 0; this.silence = 0; this.speaking = false;\n  }\n  process(input, rate, outputPlaying = false) {\n    const rms = Math.sqrt(input.reduce((sum, x) => sum + x * x, 0) / Math.max(input.length, 1));\n    const duration = input.length / rate * 1000;\n    const threshold = Math.max(this.threshold * (outputPlaying ? 1.5 : 1), this.noise * 3.5);\n    let event = null;\n    if (rms > threshold) {\n      this.attack += duration; this.silence = 0;\n      if (!this.speaking && this.attack >= this.attackMs) { this.speaking = true; event = 'speech_start'; }\n    } else {\n      this.attack = 0; this.silence += duration;\n      if (!this.speaking && !outputPlaying) this.noise = this.noise * 0.98 + Math.min(rms, this.threshold) * 0.02;\n      if (this.speaking && this.silence >= this.releaseMs) { this.speaking = false; event = 'speech_end'; }\n    }\n    return { rms, threshold, speaking: this.speaking, event };\n  }\n}\n\nclass OrdelyMic extends AudioWorkletProcessor {\n  constructor() {\n    super();\n    this.resampler = new PCMResampler(sampleRate, 16000);\n    this.vad = new VoiceActivityDetector(); this.frames = []; this.tick = 0;\n    this.streaming = false; this.outputPlaying = false; this.muted = false;\n    this.port.onmessage = ({ data }) => {\n      if (data.type === 'configure') {\n        this.streaming = !!data.streaming; this.outputPlaying = !!data.outputPlaying;\n        if (!!data.muted !== this.muted) { this.frames = []; this.resampler = new PCMResampler(sampleRate, 16000); }\n        this.muted = !!data.muted;\n        if (data.threshold) this.vad.threshold = data.threshold;\n      }\n    };\n  }\n  process(inputs, outputs) {\n    // Le micro ne doit JAMAIS être renvoyé dans le haut-parleur.\n    for (const output of outputs) for (const channel of output) channel.fill(0);\n    const input = inputs[0]?.[0];\n    if (!input) return true;\n    const level = this.vad.process(input, sampleRate, this.outputPlaying);\n    this.tick += input.length;\n    if (this.tick >= sampleRate / 10) { this.tick = 0; this.port.postMessage({ type: 'level', ...level }); }\n    if (!this.muted && level.event) this.port.postMessage({ type: level.event });\n    if (this.streaming) {\n      const samples = this.resampler.push(this.muted ? new Float32Array(input.length) : input);\n      for (const sample of samples) {\n        this.frames.push(sample);\n        if (this.frames.length === 320) {\n          const buffer = toPCM16(this.frames); this.frames = [];\n          this.port.postMessage({ type: 'pcm', buffer }, [buffer]);\n        }\n      }\n    }\n    return true;\n  }\n}\nregisterProcessor('ordely-mic', OrdelyMic);\n"], {type: 'application/javascript'}));
+(() => {
+  // public/assets/order-engine.js
+  var clone = (value) => JSON.parse(JSON.stringify(value));
+  function normalize(value = "") {
+    return String(value).normalize("NFKD").replace(/\p{M}/gu, "").toLowerCase().replace(/[أإآ]/g, "\u0627").replace(/ى/g, "\u064A").replace(/[’']/g, " ").replace(/\s+/g, " ").trim();
+  }
+  var word = (text, pattern) => new RegExp(`(?:^|[^\\p{L}\\p{N}])(?:${pattern})(?=$|[^\\p{L}\\p{N}])`, "u").test(text);
+  var digitText = (value) => String(value).replace(/[٠-٩۰-۹]/g, (d) => String("\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669".includes(d) ? "\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669".indexOf(d) : "\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9".indexOf(d)));
+  var yes = (text) => /^(oui|ouais|yes|ok|okay|d accord|exactement|ey|ay|اي|ايه|نعم|باهي|مريقل|صحيح|s7i7)(?:[\s,.!؟]*$|\s+(?:je confirme|c est correct|confirme|نثبت|اكد)(?:\s+(?:la commande|الطلبية|الcommande))?[\s.!؟]*$)/u.test(text) || /^(?:je confirme(?: la commande)?|confirmer la commande|نثبت الطلبية|اكد الطلبية|نثبت الcommande)[.!؟]*$/u.test(text);
+  var no = (text) => /^(non|no|لا|la|موش|مش)(?:$|[\s.!؟])/u.test(text);
+  var aliases = {
+    huawei: ["\u0647\u0648\u0627\u0648\u064A \u0628\u064A 30 \u0628\u0631\u0648", "\u0647\u0648\u0627\u0648\u064A", "\u0627\u0644\u0647\u0648\u0627\u0648\u064A"],
+    oppo: ["\u0627\u0648\u0628\u0648 \u0631\u064A\u0646\u0648 \u062E\u0645\u0633\u0629", "\u0627\u0648\u0628\u0648 \u0631\u064A\u0646\u0648 5", "\u0627\u0648\u0628\u0648", "\u0627\u0644\u0627\u0648\u0628\u0648", "\u0627\u0648\u067E\u0648"],
+    casque: ["\u0643\u0627\u0633\u0643", "\u0627\u0644\u0643\u0627\u0633\u0643", "\u0633\u0645\u0627\u0639\u0627\u062A"],
+    sneakers: ["\u0633\u0628\u0627\u062F\u0631\u064A", "\u0633\u0646\u064A\u0643\u0631\u0632"]
+  };
+  var colors = {
+    noir: ["noir", "black", "\u0627\u0633\u0648\u062F", "\u0627\u0643\u062D\u0644", "\u0643\u062D\u0644", "\u0644\u0627\u0643\u062D\u0644", "\u0627\u0644\u0627\u0643\u062D\u0644", "\u0644\u0643\u062D\u0644"],
+    blanc: ["blanc", "blanche", "white", "\u0627\u0628\u064A\u0636"],
+    bleu: ["bleu", "bleue", "blue", "\u0627\u0632\u0631\u0642"],
+    rouge: ["rouge", "red", "\u0627\u062D\u0645\u0631"]
+  };
+  var numbers = {
+    un: 1,
+    une: 1,
+    one: 1,
+    \u0648\u0627\u062D\u062F: 1,
+    \u0648\u0627\u062D\u062F\u0629: 1,
+    deux: 2,
+    two: 2,
+    \u0632\u0648\u0632: 2,
+    \u0627\u062B\u0646\u064A\u0646: 2,
+    trois: 3,
+    three: 3,
+    \u062B\u0644\u0627\u062B\u0629: 3,
+    \u0627\u0631\u0628\u0639\u0629: 4,
+    quatre: 4,
+    \u062E\u0645\u0633\u0629: 5,
+    cinq: 5,
+    \u0633\u062A\u0629: 6,
+    six: 6,
+    \u0633\u0628\u0639\u0629: 7,
+    sept: 7,
+    \u062B\u0645\u0627\u0646\u064A\u0629: 8,
+    huit: 8,
+    \u062A\u0633\u0639\u0629: 9,
+    neuf: 9,
+    \u0639\u0634\u0631\u0629: 10,
+    dix: 10
+  };
+  function parsePhone(input) {
+    let text = digitText(input);
+    let digits = text.replace(/\D/g, "");
+    if (!digits) {
+      const tokens = normalize(text).split(/[^\p{L}]+/u).filter(Boolean);
+      const phoneWords = { ...numbers, zero: 0, \u0635\u0641\u0631: 0 };
+      if (tokens.length === 8 && tokens.every((t) => phoneWords[t] !== void 0 && phoneWords[t] < 10)) digits = tokens.map((t) => phoneWords[t]).join("");
+    }
+    if (digits.length === 11 && digits.startsWith("216")) digits = digits.slice(3);
+    return /^[24579]\d{7}$/.test(digits) ? digits : null;
+  }
+  function parseQuantity(input) {
+    const text = normalize(digitText(input));
+    if (/[−-]\s*\d|\d[.,]\d/.test(text)) return null;
+    const numeric = text.match(/(?:^|[^\p{L}\d])([1-9]\d?)(?=$|[^\p{L}\d])/u);
+    if (numeric) return Number(numeric[1]) <= 20 ? Number(numeric[1]) : null;
+    return Object.entries(numbers).find(([name]) => word(text, name))?.[1] ?? null;
+  }
+  function parseCallbackMinutes(input) {
+    const text = normalize(digitText(input));
+    if (/demi.?heure|نص ساعة|نصف ساعة/.test(text)) return 30;
+    if (/غدوة|demain|tomorrow/.test(text)) return 1440;
+    if (/ساعتين|deux heures/.test(text)) return 120;
+    if (/ساعة|heure|hour/.test(text)) return (parseQuantity(text) ?? 1) * 60;
+    if (/دقيقة|دقايق|دقائق|minutes?/.test(text)) {
+      const m = text.match(/\b(\d{1,3})\b/);
+      return m && +m[1] >= 1 && +m[1] <= 240 ? +m[1] : null;
+    }
+    return null;
+  }
+  var OrderEngine = class {
+    constructor(database, { now = () => Date.now() } = {}) {
+      this.db = database;
+      this.now = now;
+      if (!["orders", "customers", "products"].every((k) => Array.isArray(database[k]))) throw new Error("Base de d\xE9mo invalide.");
+      for (const order of database.orders) {
+        if (!this.customer(order) || !Array.isArray(order.items) || !order.items.length) throw new Error("Commande invalide.");
+        for (const item of order.items) if (!this.product(item.productId) || !Number.isInteger(item.qty) || item.qty < 1 || item.qty > 20) throw new Error("Article invalide.");
+      }
+    }
+    product(id2) {
+      return this.db.products.find((p) => p.id === id2);
+    }
+    customer(order) {
+      return this.db.customers.find((c) => c.id === order.customerId);
+    }
+    order(id2) {
+      const order = this.db.orders.find((o) => o.id === id2);
+      if (!order) throw new Error("Commande inconnue.");
+      return order;
+    }
+    total(order) {
+      return order.items.reduce((sum, item) => sum + this.product(item.productId).price * item.qty, 0);
+    }
+    summary(order) {
+      return order.items.map((i) => `${this.product(i.productId).name} ${i.variant || ""}${i.size ? ` \xB7 ${i.size}` : ""} \xD7 ${i.qty}`).join(" + ");
+    }
+    view(id2) {
+      const order = this.order(id2);
+      return {
+        ...clone(order),
+        customer: clone(this.customer(order)),
+        total: this.total(order),
+        items: order.items.map((i) => ({ ...clone(i), product: clone(this.product(i.productId)) }))
+      };
+    }
+    list() {
+      return this.db.orders.map((o) => ({ id: o.id, customer: this.customer(o).name, total: this.total(o), status: o.status }));
+    }
+    session(orderId, language = "ar-TN") {
+      this.order(orderId);
+      return { orderId, language: language === "fr-FR" ? "fr-FR" : "ar-TN", topic: "confirm", pending: null, turn: 0 };
+    }
+    reply(session, ar, fr, changed = false) {
+      return { text: session.language === "fr-FR" ? fr : ar, changed, state: clone(session), order: this.view(session.orderId) };
+    }
+    greeting(s) {
+      const o = this.order(s.orderId), c = this.customer(o);
+      if (["CONFIRMED", "CANCELLED"].includes(o.status)) return this.reply(
+        s,
+        `\u0639\u0633\u0644\u0627\u0645\u0629 ${c.name.split(" ")[0]}. \u0627\u0644\u0637\u0644\u0628\u064A\u0629 \u0647\u0627\u0630\u064A ${o.status === "CONFIRMED" ? "\u062A\u0627\u0643\u062F\u062A" : "\u062A\u0644\u063A\u0627\u062A"} \u0642\u0628\u0644. \u0628\u0627\u0634 \u062A\u0639\u0627\u0648\u062F \u062A\u062C\u0631\u0628\u0629 \u062C\u062F\u064A\u062F\u0629\u060C \u0627\u0636\u063A\u0637 \u0639\u0644\u0649 \u062A\u0635\u0641\u064A\u0631 \u0627\u0644\u062F\u064A\u0645\u0648.`,
+        `Bonjour ${c.name.split(" ")[0]}. Cette commande est d\xE9j\xE0 ${o.status === "CONFIRMED" ? "confirm\xE9e" : "annul\xE9e"}. R\xE9initialisez la d\xE9mo pour refaire le sc\xE9nario.`
+      );
+      return this.reply(
+        s,
+        `\u0639\u0633\u0644\u0627\u0645\u0629 ${c.name.split(" ")[0]}\u060C \u0623\u0646\u0627 Ordely. \u0646\u0643\u0644\u0645\u0643 \u0639\u0644\u0649 \u0627\u0644\u0637\u0644\u0628\u064A\u0629: ${this.summary(o)}. \u0627\u0644\u0645\u062C\u0645\u0648\u0639 ${this.total(o)} \u062F\u064A\u0646\u0627\u0631. \u0627\u0644\u0639\u0646\u0648\u0627\u0646 ${c.address}. \u062A\u062D\u0628 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0648\u0644\u0627 \u062A\u0627\u0643\u062F \u0627\u0644\u0637\u0644\u0628\u064A\u0629\u061F`,
+        `Bonjour ${c.name.split(" ")[0]}, je suis Ordely. Votre commande : ${this.summary(o)}. Total : ${this.total(o)} dinars. Adresse : ${c.address}. Voulez-vous modifier un d\xE9tail ou confirmer cette commande ?`
+      );
+    }
+    selectedItems(order, text) {
+      return order.items.filter((item) => {
+        const name = normalize(this.product(item.productId).name);
+        return text.includes(name) || word(text, name.split(" ")[0]) || (aliases[name.split(" ")[0]] || []).some((alias) => word(text, alias));
+      });
+    }
+    withoutProductNames(text) {
+      let clean = text;
+      for (const p of this.db.products) {
+        clean = clean.replace(normalize(p.name), "");
+        for (const alias of aliases[normalize(p.name).split(" ")[0]] || []) clean = clean.replace(alias, "");
+        clean = clean.replace(normalize(p.name).split(" ")[0], "");
+      }
+      return clean;
+    }
+    colorValue(text, product) {
+      for (const variant of product.variants) if (text.includes(normalize(variant))) return variant;
+      const canonical = Object.keys(colors).find((k) => colors[k].some((alias) => word(text, alias)));
+      if (!canonical) return null;
+      return product.variants.find((v) => colors[canonical].some((alias) => word(normalize(v), alias))) ?? null;
+    }
+    sizeValue(text, product) {
+      let value = product.sizes.find((v) => word(text, normalize(v)));
+      if (!value && /small|smol|صغير/.test(text)) value = product.sizes.includes("S") ? "S" : null;
+      if (!value && /medium|متوسط/.test(text)) value = product.sizes.includes("M") ? "M" : null;
+      if (!value && /large|كبير/.test(text)) value = product.sizes.includes("L") ? "L" : null;
+      return value ?? null;
+    }
+    askItem(s, kind, rawText) {
+      const order = this.order(s.orderId), selected = this.selectedItems(order, normalize(rawText));
+      const item = selected.length === 1 ? selected[0] : order.items.length === 1 ? order.items[0] : null;
+      if (!item) {
+        s.topic = "item_target";
+        s.pending = { kind, rawText };
+        return this.reply(
+          s,
+          `\u0639\u0644\u0649 \u0627\u0646\u064A \u0645\u0646\u062A\u0648\u062C\u061F ${order.items.map((i) => this.product(i.productId).name).join(" \u0648\u0644\u0627 ")}\u061F`,
+          `Pour quel produit : ${order.items.map((i) => this.product(i.productId).name).join(" ou ")} ?`
+        );
+      }
+      return this.editItem(s, kind, item, rawText);
+    }
+    editItem(s, kind, item, rawText) {
+      const product = this.product(item.productId), text = normalize(rawText);
+      const value = kind === "quantity" ? parseQuantity(this.withoutProductNames(text)) : kind === "color" ? this.colorValue(text, product) : this.sizeValue(text, product);
+      if (value === null) {
+        s.topic = "item_value";
+        s.pending = { kind, productId: item.productId };
+        if (kind === "quantity") return this.reply(s, "\u0642\u062F\u0627\u0634 \u062A\u062D\u0628 \u0645\u0646 \u0642\u0637\u0639\u0629\u061F \u0645\u0646 \u0648\u0627\u062D\u062F \u0644\u0639\u0634\u0631\u064A\u0646.", "Quelle quantit\xE9 ? De 1 \xE0 20 pi\xE8ces.");
+        const options = kind === "color" ? product.variants : product.sizes;
+        if (!options.length) {
+          s.topic = "confirm";
+          s.pending = null;
+          return this.reply(s, "\u0627\u0644\u0645\u0646\u062A\u0648\u062C \u0647\u0627\u0630\u0627 \u0645\u0627 \u0639\u0646\u062F\u0648\u0634 \u0645\u0642\u0627\u0633\u0627\u062A. \u062A\u062D\u0628 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0627\u062E\u0631\u0649\u061F", "Ce produit ne propose pas de tailles. Souhaitez-vous modifier autre chose ?");
+        }
+        return this.reply(s, `\u0627\u0644\u0627\u062E\u062A\u064A\u0627\u0631\u0627\u062A \u0627\u0644\u0645\u0648\u062C\u0648\u062F\u0629: ${options.join("\u060C ")}. \u0634\u0646\u0648\u0629 \u062A\u062E\u062A\u0627\u0631\u061F`, `Choix disponibles : ${options.join(", ")}. Lequel souhaitez-vous ?`);
+      }
+      item[kind === "quantity" ? "qty" : kind === "color" ? "variant" : "size"] = value;
+      s.topic = "confirm";
+      s.pending = null;
+      return this.reply(
+        s,
+        `\u0645\u0631\u064A\u0642\u0644\u060C ${product.name}: ${item.variant || ""} ${item.size || ""} \xD7 ${item.qty}. \u0627\u0644\u0645\u062C\u0645\u0648\u0639 \u0648\u0644\u0649 ${this.total(this.order(s.orderId))} \u062F\u064A\u0646\u0627\u0631. \u062A\u0627\u0643\u062F \u0627\u0644\u0637\u0644\u0628\u064A\u0629 \u0648\u0644\u0627 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0627\u062E\u0631\u0649\u061F`,
+        `C'est not\xE9 : ${product.name}, ${item.variant || ""} ${item.size || ""}, quantit\xE9 ${item.qty}. Total : ${this.total(this.order(s.orderId))} dinars. Confirmez-vous la commande ou souhaitez-vous une autre modification ?`,
+        true
+      );
+    }
+    registerCallback(s, phone) {
+      const order = this.order(s.orderId);
+      order.callback = { requestedAt: new Date(s.pending.callbackAt).toISOString(), phone, status: "REQUESTED" };
+      order.status = "CALLBACK_REQUESTED";
+      s.topic = "general";
+      s.pending = null;
+      return this.reply(
+        s,
+        `\u0633\u062C\u0644\u062A \u0637\u0644\u0628 \u0645\u0639\u0627\u0648\u062F\u0629 \u0627\u0644\u0627\u062A\u0635\u0627\u0644 \u0639\u0644\u0649 ${phone}. \u0647\u0627\u0630\u064A \u062F\u064A\u0645\u0648: \u0645\u0627 \u0641\u0645\u0627\u0634 \u0645\u0643\u0627\u0644\u0645\u0629 \u062D\u0642\u064A\u0642\u064A\u0629 \u0645\u0628\u0631\u0645\u062C\u0629.`,
+        `Demande de rappel enregistr\xE9e au ${phone}. C'est une d\xE9mo : aucun appel t\xE9l\xE9phonique r\xE9el n'est programm\xE9.`,
+        true
+      );
+    }
+    turn(s, input) {
+      const raw = String(input ?? "").trim();
+      if (!raw || raw.length > 2e3) throw new Error("Phrase vide ou trop longue (2 000 caract\xE8res maximum).");
+      const text = normalize(raw), order = this.order(s.orderId), customer = this.customer(order);
+      s.turn += 1;
+      const respond = (ar, fr, changed = false) => this.reply(s, ar, fr, changed);
+      const prohibit = /\bne\b.*\bpas\b|\bn (?:annule|enleve|change|modifie) pas\b|ما.*(?:تلغيش|تفسخش|تنحيش|تبدلش)/u.test(text);
+      const negative = no(text) || prohibit;
+      if (prohibit) {
+        s.topic = "general";
+        s.pending = null;
+        return respond("\u0628\u0627\u0647\u064A\u060C \u0645\u0627 \u0646\u0628\u062F\u0644 \u062D\u062A\u0649 \u0634\u064A. \u0634\u0646\u0648\u0629 \u062A\u062D\u0628 \u0646\u0631\u0627\u062C\u0639\u061F", "D\u2019accord, je ne modifie rien. Que souhaitez-vous v\xE9rifier ?");
+      }
+      const price = word(text, "prix|price|total|montant|\u0642\u062F\u0627\u0634|\u0628\u0642\u062F\u0627\u0634|\u0627\u0644\u0645\u062C\u0645\u0648\u0639|\u0627\u0644\u0633\u0648\u0645") && !/كمية|quantite/.test(text);
+      const fieldIntent = /adresse|address|3onwen|3onwan|عنوان/.test(text) ? "address" : /numero|telephone|phone|نمرة|نيميرو|تليفون/.test(text) ? "phone" : /couleur|color|لون/.test(text) ? "color" : /taille|size|قياس|مقاس/.test(text) ? "size" : /quantite|quantity|كمية|pieces?|قطعة|قطع/.test(text) ? "quantity" : null;
+      if (price) return respond(`\u0627\u0644\u0645\u062C\u0645\u0648\u0639 ${this.total(order)} \u062F\u064A\u0646\u0627\u0631.`, `Le total est de ${this.total(order)} dinars.`);
+      if (["CONFIRMED", "CANCELLED"].includes(order.status)) return this.greeting(s);
+      if (s.topic === "cancel_confirm" && (yes(text) || no(text))) {
+        if (no(text)) {
+          s.topic = "confirm";
+          s.pending = null;
+          return respond("\u0628\u0627\u0647\u064A\u060C \u0645\u0627 \u0646\u0644\u063A\u064A \u062D\u062A\u0649 \u0634\u064A. \u0634\u0646\u0648\u0629 \u062A\u062D\u0628 \u062A\u0628\u062F\u0644\u061F", "D\u2019accord, je n\u2019annule rien. Que souhaitez-vous modifier ?");
+        }
+        order.status = "CANCELLED";
+        s.topic = "done";
+        s.pending = null;
+        return respond("\u0645\u0631\u064A\u0642\u0644\u060C \u062A\u0644\u063A\u0627\u062A \u0627\u0644\u0637\u0644\u0628\u064A\u0629. \u064A\u0639\u0637\u064A\u0643 \u0627\u0644\u0635\u062D\u0629.", "Votre commande a \xE9t\xE9 annul\xE9e. Merci.", true);
+      }
+      if (s.topic === "address_confirm" && (yes(text) || no(text))) {
+        if (no(text)) {
+          s.topic = "address_new";
+          s.pending = null;
+          return respond("\u0628\u0627\u0647\u064A\u060C \u0623\u0639\u0637\u064A\u0646\u064A \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0635\u062D\u064A\u062D.", "D\u2019accord, indiquez l\u2019adresse correcte.");
+        }
+        customer.address = s.pending.address;
+        s.topic = "confirm";
+        s.pending = null;
+        return respond(
+          `\u0628\u062F\u0644\u062A \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0649 ${customer.address}. \u062A\u0648\u0627\u060C \u062A\u0627\u0643\u062F \u0627\u0644\u0637\u0644\u0628\u064A\u0629 \u0643\u0627\u0645\u0644\u0629 \u0648\u0644\u0627 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0627\u062E\u0631\u0649\u061F`,
+          `Adresse modifi\xE9e : ${customer.address}. Confirmez-vous maintenant toute la commande, ou souhaitez-vous modifier autre chose ?`,
+          true
+        );
+      }
+      const wantsCancel = !negative && word(text, "annul(?:e|er|ation)?|cancel|fassakh|fasa5|\u0641\u0633\u062E|\u0641\u0633\u0651\u062E|\u062A\u0644\u063A\u064A|\u0627\u0644\u063A\u064A|\u0646\u0644\u063A\u064A|\u0646\u0644\u063A\u064A\u0647\u0627|\u0627\u0644\u063A\u0627\u0621");
+      const wantsCallback = /rappel|rappelle.?moi|rappeler/.test(text) && !/adresse|couleur|numero|produit|commande|prix/.test(text) || /عاود.*اتصل|عاودو.*اتصل|نعاودو.*نتصل|baad.*se3a|بعد ساعة|apres une heure/.test(text);
+      if (wantsCancel) {
+        s.topic = "cancel_confirm";
+        s.pending = null;
+        return respond("\u062A\u062D\u0628 \u0646\u0644\u063A\u064A \u0627\u0644\u0637\u0644\u0628\u064A\u0629 \u0646\u0647\u0627\u0626\u064A\u0627\u061F \u0642\u0648\u0644 \u0627\u064A \u0648\u0644\u0627 \u0644\u0627.", "Souhaitez-vous annuler d\xE9finitivement la commande ? Dites oui ou non.");
+      }
+      if (wantsCallback) {
+        const minutes = parseCallbackMinutes(text);
+        if (!minutes) {
+          s.topic = "callback_time";
+          s.pending = null;
+          return respond("\u0628\u0639\u062F \u0642\u062F\u0627\u0634 \u0646\u0637\u0644\u0628\u0648\u0644\u0643 \u0645\u0639\u0627\u0648\u062F\u0629 \u0627\u0644\u0627\u062A\u0635\u0627\u0644\u061F", "Dans combien de temps souhaitez-vous demander un rappel ?");
+        }
+        s.topic = "callback_phone";
+        s.pending = { callbackAt: this.now() + minutes * 6e4 };
+        return respond(
+          `\u0633\u062C\u0644\u062A \u0627\u0644\u0648\u0642\u062A \u0628\u0639\u062F ${minutes} \u062F\u0642\u064A\u0642\u0629. \u0646\u0633\u062A\u0639\u0645\u0644 \u0646\u0641\u0633 \u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648 ${customer.phone}\u061F \u0642\u0648\u0644 \u0627\u064A \u0648\u0644\u0627 \u0627\u0639\u0637\u064A\u0646\u064A \u0646\u064A\u0645\u064A\u0631\u0648 \u0627\u062E\u0631.`,
+          `Rappel demand\xE9 dans ${minutes} minutes. Utiliser le m\xEAme num\xE9ro, ${customer.phone} ? Dites oui, ou donnez un autre num\xE9ro.`
+        );
+      }
+      const pendingField = s.topic.startsWith("address_") ? "address" : s.topic === "phone_new" ? "phone" : s.topic.startsWith("item_") ? s.pending?.kind : s.topic.startsWith("callback_") ? "callback" : null;
+      if (fieldIntent && pendingField && fieldIntent !== pendingField) {
+        s.topic = "general";
+        s.pending = null;
+      }
+      if (s.topic === "callback_time") {
+        const minutes = parseCallbackMinutes(text);
+        if (!minutes) return respond("\u0645\u062B\u0644\u0627: \u0628\u0639\u062F \u0633\u0627\u0639\u0629\u060C \u0648\u0644\u0627 \u0628\u0639\u062F 30 \u062F\u0642\u064A\u0642\u0629.", "Par exemple : dans une heure, ou dans 30 minutes.");
+        s.topic = "callback_phone";
+        s.pending = { callbackAt: this.now() + minutes * 6e4 };
+        return respond(`\u0628\u0627\u0647\u064A\u060C \u0628\u0639\u062F ${minutes} \u062F\u0642\u064A\u0642\u0629. \u0646\u0641\u0633 \u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648\u061F`, `D'accord, dans ${minutes} minutes. Utiliser le m\xEAme num\xE9ro ?`);
+      }
+      if (s.topic === "callback_phone") {
+        if (yes(text)) return this.registerCallback(s, customer.altPhone || customer.phone);
+        const p = parsePhone(raw);
+        if (p) {
+          customer.altPhone = p;
+          return this.registerCallback(s, p);
+        }
+        return respond("\u0642\u0648\u0644 \u0627\u064A \u0644\u0646\u0641\u0633 \u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648\u060C \u0648\u0644\u0627 \u0623\u0639\u0637\u064A\u0646\u064A \u062B\u0645\u0627\u0646\u064A\u0629 \u0623\u0631\u0642\u0627\u0645 \u0644\u0646\u064A\u0645\u064A\u0631\u0648 \u0627\u062E\u0631.", "Dites oui pour le m\xEAme num\xE9ro, ou donnez les 8 chiffres d\u2019un autre num\xE9ro.");
+      }
+      if (s.topic === "address_new") {
+        if (no(text)) {
+          s.topic = "confirm";
+          s.pending = null;
+          return respond("\u0628\u0627\u0647\u064A\u060C \u0646\u062E\u0644\u064A \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0642\u062F\u064A\u0645. \u062A\u062D\u0628 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0627\u062E\u0631\u0649\u061F", "D\u2019accord, je conserve l\u2019adresse actuelle. Une autre modification ?");
+        }
+        if (yes(text) || raw.length < 6) return respond("\u0623\u0639\u0637\u064A\u0646\u064A \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u062C\u062F\u064A\u062F \u0628\u0627\u0644\u062A\u0641\u0635\u064A\u0644\u060C \u0645\u0648\u0634 \u0643\u0627\u0646 \u0627\u064A.", "Indiquez l\u2019adresse compl\xE8te, pas seulement oui.");
+        s.topic = "address_confirm";
+        s.pending = { address: raw };
+        return respond(`\u0641\u0647\u0645\u062A \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u062C\u062F\u064A\u062F: ${raw}. \u0635\u062D\u064A\u062D\u061F`, `J\u2019ai compris cette nouvelle adresse : ${raw}. Est-ce correct ?`);
+      }
+      if (s.topic === "phone_new") {
+        const p = parsePhone(raw);
+        if (!p) return respond("\u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648 \u064A\u0644\u0632\u0645\u0648 \u062B\u0645\u0627\u0646\u064A\u0629 \u0623\u0631\u0642\u0627\u0645 \u0635\u062D\u064A\u062D\u0629. \u0645\u062B\u0627\u0644: 22222222.", "Il faut un num\xE9ro tunisien valide de 8 chiffres, par exemple 22222222.");
+        customer.altPhone = p;
+        s.topic = "confirm";
+        s.pending = null;
+        return respond(`\u0632\u062F\u062A \u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648 ${p}. \u062A\u0627\u0643\u062F \u0627\u0644\u0637\u0644\u0628\u064A\u0629 \u0648\u0644\u0627 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0627\u062E\u0631\u0649\u061F`, `Num\xE9ro suppl\xE9mentaire enregistr\xE9 : ${p}. Confirmez-vous la commande ou souhaitez-vous une autre modification ?`, true);
+      }
+      if (s.topic === "item_target") {
+        const matches = this.selectedItems(order, text);
+        if (matches.length === 1) {
+          const { kind, rawText } = s.pending;
+          return this.editItem(s, kind, matches[0], `${rawText} ${raw}`);
+        }
+      }
+      if (s.topic === "item_value") {
+        const { kind, productId } = s.pending, item = order.items.find((i) => i.productId === productId);
+        const value = kind === "quantity" ? parseQuantity(text) : kind === "color" ? this.colorValue(text, this.product(productId)) : this.sizeValue(text, this.product(productId));
+        if (value !== null && item) return this.editItem(s, kind, item, raw);
+      }
+      const addressIntent = /adresse|address|3onwen|3onwan|عنوان/.test(text);
+      if (addressIntent) {
+        const readOnly = /rappelle|rappel|ذكرني|ذكّرني|quelle|c est quoi|شنوة|شنو/.test(text) && !/change|modif|بدل|تبدل|تبدلت/.test(text);
+        if (readOnly) return respond(`\u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u0644\u064A \u0639\u0646\u062F\u0646\u0627: ${customer.address}.`, `Adresse actuelle : ${customer.address}.`);
+        const inline = raw.match(/(?:adresse\s*(?:est|:|=)|adresse\s+(?:à|a|vers)|العنوان الجديد\s*(?:هو|:))\s*(.{6,})/iu)?.[1];
+        if (inline) {
+          s.topic = "address_confirm";
+          s.pending = { address: inline.trim() };
+          return respond(`\u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u062C\u062F\u064A\u062F ${inline.trim()}. \u0635\u062D\u064A\u062D\u061F`, `Nouvelle adresse : ${inline.trim()}. Est-ce correct ?`);
+        }
+        s.topic = "address_new";
+        s.pending = null;
+        return respond(`\u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u062D\u0627\u0644\u064A ${customer.address}. \u0623\u0639\u0637\u064A\u0646\u064A \u0627\u0644\u0639\u0646\u0648\u0627\u0646 \u0627\u0644\u062C\u062F\u064A\u062F \u0628\u0627\u0644\u062A\u0641\u0635\u064A\u0644.`, `Adresse actuelle : ${customer.address}. Indiquez votre nouvelle adresse compl\xE8te.`);
+      }
+      if (/numero|telephone|phone|نمرة|نيميرو|تليفون/.test(text)) {
+        const p = parsePhone(raw);
+        if (p) {
+          customer.altPhone = p;
+          s.topic = "confirm";
+          s.pending = null;
+          return respond(`\u0633\u062C\u0644\u062A \u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648 ${p}. \u062A\u0627\u0643\u062F \u0627\u0644\u0637\u0644\u0628\u064A\u0629 \u0648\u0644\u0627 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0627\u062E\u0631\u0649\u061F`, `Num\xE9ro suppl\xE9mentaire enregistr\xE9 : ${p}. Confirmez-vous la commande ou souhaitez-vous une autre modification ?`, true);
+        }
+        if (/rappelle|ذكرني|quel est/.test(text)) return respond(`\u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648 ${customer.phone}${customer.altPhone ? ` \u0648\u0632\u0627\u062F\u0629 ${customer.altPhone}` : ""}.`, `Num\xE9ro actuel : ${customer.phone}${customer.altPhone ? ` ; autre num\xE9ro : ${customer.altPhone}` : ""}.`);
+        s.topic = "phone_new";
+        s.pending = null;
+        return respond("\u0623\u0639\u0637\u064A\u0646\u064A \u0627\u0644\u0646\u064A\u0645\u064A\u0631\u0648 \u0627\u0644\u0644\u064A \u062A\u062D\u0628 \u062A\u0632\u064A\u062F\u0648\u060C \u062B\u0645\u0627\u0646\u064A\u0629 \u0623\u0631\u0642\u0627\u0645.", "Donnez les 8 chiffres du num\xE9ro \xE0 ajouter.");
+      }
+      const removeMatch = text.match(/(?:^|\s)(?:و)?(?:نحي|nahhi|na7i|enleve|retire|supprime|remove)\s+(.+)$/u);
+      const keepOnly = /(?:خليلي|خلي|garde|khalili|khali).*(?:كان|seulement|uniquement)|juste.*(?:huawei|oppo|casque|sneakers)/u.test(text);
+      if (!negative && (removeMatch || keepOnly)) {
+        const targeted = this.selectedItems(order, removeMatch ? removeMatch[1] : text);
+        const ids = new Set(targeted.map((i) => i.productId));
+        const remaining = order.items.filter((i) => removeMatch ? !ids.has(i.productId) : ids.has(i.productId));
+        if (!targeted.length) return respond("\u0627\u0646\u064A \u0645\u0646\u062A\u0648\u062C \u062A\u062D\u0628 \u062A\u0646\u062D\u064A\u061F \u0623\u0639\u0637\u064A\u0646\u064A \u0627\u0633\u0645\u0648.", "Quel produit souhaitez-vous retirer ? Indiquez son nom.");
+        if (!remaining.length) return respond("\u0645\u0627 \u0646\u0646\u062C\u0645\u0634 \u0646\u062E\u0644\u064A \u0637\u0644\u0628\u064A\u0629 \u0641\u0627\u0631\u063A\u0629. \u062A\u062D\u0628 \u062A\u0644\u063A\u064A\u0647\u0627\u061F \u0642\u0648\u0644 \u0646\u062D\u0628 \u0646\u0644\u063A\u064A \u0627\u0644\u0637\u0644\u0628\u064A\u0629.", "Je ne peux pas laisser une commande vide. Pour annuler, dites \xAB annuler la commande \xBB.");
+        order.items = remaining;
+        s.topic = "confirm";
+        s.pending = null;
+        return respond(
+          `\u0645\u0631\u064A\u0642\u0644\u060C \u062E\u0644\u064A\u062A\u0644\u0643 ${this.summary(order)}. \u0627\u0644\u0645\u062C\u0645\u0648\u0639 ${this.total(order)} \u062F\u064A\u0646\u0627\u0631. \u062A\u0627\u0643\u062F \u0627\u0644\u0637\u0644\u0628\u064A\u0629 \u0648\u0644\u0627 \u062A\u0628\u062F\u0644 \u062D\u0627\u062C\u0629 \u0627\u062E\u0631\u0649\u061F`,
+          `Il reste : ${this.summary(order)}. Total : ${this.total(order)} dinars. Confirmez-vous la commande ou souhaitez-vous une autre modification ?`,
+          true
+        );
+      }
+      const reminder = /ذكرني|rappelle|quel(?:le)?|c est quoi|شنوة/.test(text);
+      if (/couleur|color|لون/.test(text)) {
+        if (reminder) return respond(order.items.map((i) => `${this.product(i.productId).name}: ${i.variant}`).join("\u060C "), order.items.map((i) => `${this.product(i.productId).name} : ${i.variant}`).join(", "));
+        return this.askItem(s, "color", raw);
+      }
+      if (/taille|size|قياس|مقاس/.test(text)) return this.askItem(s, "size", raw);
+      if (/quantite|quantity|كمية|pieces?|قطعة|قطع/.test(text) || this.selectedItems(order, text).length && parseQuantity(this.withoutProductNames(text)) !== null) return this.askItem(s, "quantity", raw);
+      if (yes(text) && s.topic === "confirm") {
+        order.status = "CONFIRMED";
+        s.topic = "done";
+        s.pending = null;
+        return respond(
+          `\u0645\u0631\u064A\u0642\u0644\u060C \u062A\u0623\u0643\u062F\u062A \u0627\u0644\u0637\u0644\u0628\u064A\u0629. \u0627\u0644\u0645\u062C\u0645\u0648\u0639 ${this.total(order)} \u062F\u064A\u0646\u0627\u0631\u060C \u0648\u0627\u0644\u0639\u0646\u0648\u0627\u0646 ${customer.address}. \u064A\u0639\u0637\u064A\u0643 \u0627\u0644\u0635\u062D\u0629.`,
+          `Commande confirm\xE9e. Total : ${this.total(order)} dinars. Livraison \xE0 ${customer.address}. Merci.`,
+          true
+        );
+      }
+      if (negative) {
+        s.topic = "general";
+        s.pending = null;
+        return respond("\u0628\u0627\u0647\u064A\u060C \u0645\u0627 \u0646\u062B\u0628\u062A \u0648\u0645\u0627 \u0646\u0644\u063A\u064A \u062D\u062A\u0649 \u0634\u064A. \u0634\u0646\u0648\u0629 \u062A\u062D\u0628 \u062A\u0628\u062F\u0644\u061F", "D\u2019accord, je ne confirme ni n\u2019annule rien. Que souhaitez-vous modifier ?");
+      }
+      if (yes(text)) {
+        s.topic = "confirm";
+        return this.greeting(s);
+      }
+      return respond(
+        "\u0628\u0627\u0634 \u0645\u0627 \u0646\u0628\u062F\u0644 \u062D\u062A\u0649 \u0634\u064A \u0628\u0627\u0644\u063A\u0644\u0637\u060C \u0648\u0636\u062D\u0644\u064A: \u0645\u0646\u062A\u0648\u062C\u060C \u0643\u0645\u064A\u0629\u060C \u0644\u0648\u0646\u060C \u0642\u064A\u0627\u0633\u060C \u0639\u0646\u0648\u0627\u0646\u060C \u0646\u0645\u0631\u0629\u060C \u0633\u0648\u0645\u060C \u0645\u0639\u0627\u0648\u062F\u0629 \u0627\u062A\u0635\u0627\u0644 \u0648\u0644\u0627 \u0627\u0644\u063A\u0627\u0621\u061F",
+        "Pour \xE9viter une mauvaise modification, pr\xE9cisez : produit, quantit\xE9, couleur, taille, adresse, t\xE9l\xE9phone, prix, rappel ou annulation."
+      );
+    }
+  };
+
+  // public/assets/audio-utils.js
+  var PCMResampler = class {
+    constructor(inputRate, outputRate = 16e3) {
+      if (inputRate < outputRate || outputRate <= 0) throw new Error("Fr\xE9quences non prises en charge.");
+      this.ratio = inputRate / outputRate;
+      this.remaining = this.ratio;
+      this.sum = 0;
+      this.weight = 0;
+    }
+    push(input) {
+      const output = [];
+      for (const sample of input) {
+        let available = 1;
+        while (available > 1e-9) {
+          const take = Math.min(available, this.remaining);
+          this.sum += sample * take;
+          this.weight += take;
+          this.remaining -= take;
+          available -= take;
+          if (this.remaining < 1e-9) {
+            output.push(Math.max(-1, Math.min(1, this.sum / this.weight)));
+            this.remaining = this.ratio;
+            this.sum = 0;
+            this.weight = 0;
+          }
+        }
+      }
+      return Float32Array.from(output);
+    }
+  };
+  function toPCM16(input) {
+    const buffer = new ArrayBuffer(input.length * 2), view = new DataView(buffer);
+    input.forEach((sample, i) => {
+      const x = Math.max(-1, Math.min(1, sample));
+      view.setInt16(i * 2, Math.round(x * (x < 0 ? 32768 : 32767)), true);
+    });
+    return buffer;
+  }
+  var VoiceActivityDetector = class {
+    constructor({ threshold = 0.018, attackMs = 120, releaseMs = 400 } = {}) {
+      this.threshold = threshold;
+      this.attackMs = attackMs;
+      this.releaseMs = releaseMs;
+      this.noise = 1e-3;
+      this.attack = 0;
+      this.silence = 0;
+      this.speaking = false;
+    }
+    process(input, rate, outputPlaying = false) {
+      const rms = Math.sqrt(input.reduce((sum, x) => sum + x * x, 0) / Math.max(input.length, 1));
+      const duration = input.length / rate * 1e3;
+      const threshold = Math.max(this.threshold * (outputPlaying ? 1.5 : 1), this.noise * 3.5);
+      let event = null;
+      if (rms > threshold) {
+        this.attack += duration;
+        this.silence = 0;
+        if (!this.speaking && this.attack >= this.attackMs) {
+          this.speaking = true;
+          event = "speech_start";
+        }
+      } else {
+        this.attack = 0;
+        this.silence += duration;
+        if (!this.speaking && !outputPlaying) this.noise = this.noise * 0.98 + Math.min(rms, this.threshold) * 0.02;
+        if (this.speaking && this.silence >= this.releaseMs) {
+          this.speaking = false;
+          event = "speech_end";
+        }
+      }
+      return { rms, threshold, speaking: this.speaking, event };
+    }
+  };
+
+  // public/assets/voice.js
+  var VoiceIO = class extends EventTarget {
+    constructor() {
+      super();
+      this.context = null;
+      this.stream = null;
+      this.node = null;
+      this.source = null;
+      this.recognition = null;
+      this.recognitionActive = false;
+      this.recognitionWanted = false;
+      this.sessionActive = false;
+      this.mode = "browser";
+      this.language = "ar-TN";
+      this.muted = false;
+      this.outputPlaying = false;
+      this.outputEpoch = 0;
+      this.sources = /* @__PURE__ */ new Set();
+      this.pendingFinal = [];
+      this.interim = "";
+      this.seenFinal = /* @__PURE__ */ new Set();
+      this.generation = 0;
+      this.threshold = 0.018;
+      this.streamingReady = false;
+      this.lastSpokenText = "";
+      this.retryCount = 0;
+      this.blocked = false;
+      this.lastOutputEnd = 0;
+      this.captureEpoch = 0;
+      this.nativeOnly = false;
+      this.monitorFallbackTried = false;
+    }
+    emit(type, detail = {}) {
+      this.dispatchEvent(new CustomEvent(type, { detail }));
+    }
+    get supportsRecognition() {
+      return !!(window.SpeechRecognition || window.webkitSpeechRecognition);
+    }
+    get supportsSynthesis() {
+      return !!window.speechSynthesis && !!window.SpeechSynthesisUtterance;
+    }
+    // Appelé directement par le clic, AVANT les opérations asynchrones/permissions.
+    unlock() {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (AudioContext && !this.context) this.context = new AudioContext();
+      this.context?.resume().catch(() => {
+      });
+      if (this.supportsSynthesis && !this.primed) {
+        this.primed = true;
+        const utterance = new SpeechSynthesisUtterance(" ");
+        utterance.volume = 0;
+        speechSynthesis.speak(utterance);
+      }
+    }
+    async openMicrophone() {
+      if (!window.isSecureContext) throw new Error("Le micro exige une URL HTTPS sur t\xE9l\xE9phone. Une adresse http://192.168\u2026 ne convient pas.");
+      if (!navigator.mediaDevices?.getUserMedia) throw new Error("Micro indisponible dans ce navigateur ou cette fen\xEAtre. Ouvrez le lien dans Chrome/Safari, hors navigateur int\xE9gr\xE9.");
+      if (this.stream?.getAudioTracks().some((t) => t.readyState === "live")) return;
+      this.unlock();
+      if (!this.context) throw new Error("Web Audio est indisponible. Le mode texte reste utilisable.");
+      const context = this.context, captureEpoch = ++this.captureEpoch;
+      await context.resume();
+      if (captureEpoch !== this.captureEpoch || context !== this.context) return;
+      let requestedStream;
+      try {
+        requestedStream = await navigator.mediaDevices.getUserMedia({ audio: {
+          echoCancellation: true,
+          noiseSuppression: true,
+          autoGainControl: true,
+          channelCount: 1
+        }, video: false });
+      } catch (error2) {
+        const messages = {
+          NotAllowedError: "Micro refus\xE9. Autorisez le micro dans les r\xE9glages du site et du t\xE9l\xE9phone, puis r\xE9essayez.",
+          NotFoundError: "Aucun microphone d\xE9tect\xE9. V\xE9rifiez le casque ou le p\xE9riph\xE9rique s\xE9lectionn\xE9.",
+          NotReadableError: "Micro occup\xE9 ou inaccessible. Fermez les autres appels/applications utilisant le micro.",
+          AbortError: "Ouverture du micro interrompue. R\xE9essayez."
+        };
+        throw new Error(messages[error2.name] || `Impossible d\u2019ouvrir le micro : ${error2.message}`);
+      }
+      if (captureEpoch !== this.captureEpoch || context !== this.context) {
+        requestedStream.getTracks().forEach((track) => track.stop());
+        return;
+      }
+      const stream = this.stream = requestedStream;
+      this.nativeOnly = false;
+      this.source = context.createMediaStreamSource(stream);
+      try {
+        if (!context.audioWorklet || !window.AudioWorkletNode) throw new Error("AudioWorklet indisponible");
+        if (!this.workletLoaded) {
+          const workletURL = globalThis.__ORDELY_WORKLET_URL__ || new URL("./mic-worklet.js", document.baseURI);
+          await context.audioWorklet.addModule(workletURL);
+          this.workletLoaded = true;
+        }
+        if (this.stream !== stream) return;
+        this.node = new AudioWorkletNode(this.context, "ordely-mic");
+        this.node.port.onmessage = ({ data }) => this.handleMicrophone(data);
+      } catch (error2) {
+        if (this.stream !== stream) return;
+        this.emit("notice", { message: "AudioWorklet indisponible : capture compatible utilis\xE9e." });
+        const resampler = new PCMResampler(this.context.sampleRate), vad = new VoiceActivityDetector({ threshold: this.threshold });
+        this.node = this.context.createScriptProcessor(2048, 1, 1);
+        this.node.onaudioprocess = (event) => {
+          event.outputBuffer.getChannelData(0).fill(0);
+          const input = event.inputBuffer.getChannelData(0);
+          vad.threshold = this.threshold;
+          const level = vad.process(input, this.context.sampleRate, this.outputPlaying);
+          this.handleMicrophone({ type: "level", ...level });
+          if (!this.muted && level.event) this.handleMicrophone({ type: level.event });
+          if (this.mode === "streaming" && this.streamingReady) this.handleMicrophone({ type: "pcm", buffer: toPCM16(resampler.push(this.muted ? new Float32Array(input.length) : input)) });
+        };
+      }
+      this.source.connect(this.node);
+      this.silentGain = this.context.createGain();
+      this.silentGain.gain.value = 0;
+      this.node.connect(this.silentGain);
+      this.silentGain.connect(this.context.destination);
+      for (const track of stream.getAudioTracks()) track.onended = () => {
+        if (this.stream === stream) {
+          this.stopRecognition();
+          this.emit("error", { message: "Le micro a \xE9t\xE9 d\xE9connect\xE9. Rebranchez-le puis activez le micro." });
+        }
+      };
+      this.configure();
+      this.emit("microphone", { state: "ready", device: stream.getAudioTracks()[0]?.label || "Micro autoris\xE9" });
+    }
+    handleMicrophone(data) {
+      if (data.type === "level") this.emit("level", { ...data, rms: this.muted ? 0 : data.rms });
+      if (data.type === "pcm" && this.sessionActive && this.streamingReady) this.emit("pcm", { buffer: data.buffer });
+      if (data.type === "speech_start" && this.sessionActive && !this.muted) this.emit("speech_start", { source: "local-vad" });
+      if (data.type === "speech_end" && this.sessionActive && !this.muted) this.emit("speech_end");
+    }
+    configure() {
+      this.node?.port?.postMessage({
+        type: "configure",
+        streaming: this.mode === "streaming" && this.streamingReady,
+        outputPlaying: this.outputPlaying,
+        muted: this.muted,
+        threshold: this.threshold
+      });
+    }
+    enableListening(mode = "browser", language = "ar-TN") {
+      this.mode = mode;
+      this.language = language;
+      this.sessionActive = true;
+      this.blocked = false;
+      this.retryCount = 0;
+      this.muted = false;
+      this.monitorFallbackTried = false;
+      this.configure();
+      if (mode === "browser" && this.stream) {
+        this.recognitionWanted = true;
+        this.startRecognition();
+      } else this.emit("recognition", { state: mode === "streaming" ? "streaming" : "text" });
+    }
+    setStreamingReady(value) {
+      this.streamingReady = value;
+      this.configure();
+    }
+    likelyEcho(text) {
+      if (!this.outputPlaying && Date.now() - this.lastOutputEnd > 900) return false;
+      const input = normalize(text).split(" ").filter(Boolean), answer = normalize(this.lastSpokenText).split(" ");
+      return input.length >= 4 && input.filter((w) => answer.includes(w)).length / input.length > 0.85;
+    }
+    startRecognition() {
+      if (!this.sessionActive || this.muted || this.blocked || !this.recognitionWanted || this.recognition) return;
+      const Recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      if (!Recognition) {
+        this.blocked = true;
+        this.emit("recognition", { state: "unavailable" });
+        this.emit("error", { message: "Reconnaissance vocale absente. Essayez Chrome sur Android ou Safari sur iPhone. Le micro et le mode texte peuvent fonctionner sans transcription." });
+        return;
+      }
+      const recognition = new Recognition(), generation = ++this.generation;
+      this.recognition = recognition;
+      recognition.lang = this.language;
+      recognition.continuous = true;
+      recognition.interimResults = true;
+      recognition.maxAlternatives = 1;
+      this.emit("recognition", { state: "starting" });
+      recognition.onstart = () => {
+        if (this.recognition !== recognition) return;
+        this.recognitionActive = true;
+        this.emit("recognition", { state: "listening" });
+      };
+      recognition.onspeechstart = () => {
+        if (this.sessionActive && !this.muted) this.emit("speech_start", { source: "recognizer" });
+      };
+      recognition.onresult = (event) => {
+        if (!this.sessionActive || this.muted || this.recognition !== recognition) return;
+        this.retryCount = 0;
+        clearTimeout(this.finalTimer);
+        const finals = [], partials = [];
+        for (let i = event.resultIndex; i < event.results.length; i++) {
+          const result = event.results[i], text2 = result[0]?.transcript?.trim();
+          if (!text2) continue;
+          if (result.isFinal) {
+            const key = `${generation}:${i}`;
+            if (!this.seenFinal.has(key)) {
+              this.seenFinal.add(key);
+              finals.push(text2);
+            }
+          } else partials.push(text2);
+        }
+        const recognized = [...finals, ...partials].join(" ");
+        if (recognized && this.likelyEcho(recognized)) {
+          this.emit("notice", { message: "\xC9cho probable ignor\xE9. Un casque am\xE9liore le test d\u2019interruption." });
+          return;
+        }
+        this.pendingFinal.push(...finals);
+        this.interim = partials.join(" ");
+        const text = [...this.pendingFinal, this.interim].filter(Boolean).join(" ").slice(0, 2e3);
+        if (text) {
+          if (this.outputPlaying) this.emit("speech_start", { source: "transcript" });
+          this.emit("interim", { text });
+        }
+        if (this.pendingFinal.length && !this.interim) this.finalTimer = setTimeout(() => this.flushFinal(), 750);
+      };
+      recognition.onerror = (event) => {
+        if (this.recognition !== recognition || !this.sessionActive || this.muted) return;
+        if (["aborted", "no-speech"].includes(event.error)) return;
+        if (event.error === "audio-capture" && this.stream && !this.monitorFallbackTried) {
+          this.monitorFallbackTried = true;
+          this.recognitionActive = false;
+          this.closeMicrophone({ keepRecognition: true });
+          this.emit("notice", { message: "Partage du micro refus\xE9 : mesure RMS/VAD d\xE9sactiv\xE9e, relance en \xE9coute native seule." });
+          this.emit("recognition", { state: "restarting" });
+          try {
+            recognition.abort();
+          } catch {
+          }
+          return;
+        }
+        const messages = {
+          "not-allowed": "Reconnaissance refus\xE9e. V\xE9rifiez les permissions micro du navigateur et du syst\xE8me.",
+          "service-not-allowed": "Le service vocal du navigateur est bloqu\xE9 sur cet appareil. Essayez un autre navigateur ou le mode texte.",
+          "audio-capture": "La reconnaissance ne peut pas acc\xE9der au micro. Fermez les autres applications audio.",
+          "language-not-supported": "La langue ar-TN n\u2019est pas accept\xE9e par ce service. Essayez Fran\xE7ais dans la liste des langues.",
+          network: "Le service de reconnaissance du navigateur est inaccessible. V\xE9rifiez Internet ; la page gratuite utilise quand m\xEAme un service vocal du navigateur."
+        };
+        if (event.error === "network") this.retryCount += 1;
+        else this.blocked = true;
+        if (this.retryCount >= 3) this.blocked = true;
+        this.emit("error", { message: messages[event.error] || `Erreur de reconnaissance : ${event.error}` });
+        this.emit("recognition", { state: this.blocked ? "blocked" : "restarting" });
+      };
+      recognition.onend = () => {
+        if (this.recognition !== recognition) return;
+        this.recognition = null;
+        this.recognitionActive = false;
+        if (this.pendingFinal.length && !this.finalTimer) this.finalTimer = setTimeout(() => this.flushFinal(), 750);
+        if (this.sessionActive && this.recognitionWanted && !this.muted && !this.blocked) {
+          this.emit("recognition", { state: "restarting" });
+          this.restartTimer = setTimeout(() => this.startRecognition(), this.retryCount ? 1500 : 350);
+        } else this.emit("recognition", { state: this.blocked ? "blocked" : this.muted ? "muted" : "off" });
+      };
+      try {
+        recognition.start();
+      } catch (error2) {
+        this.recognition = null;
+        this.blocked = true;
+        this.emit("recognition", { state: "blocked" });
+        this.emit("error", { message: `L\u2019\xE9coute n\u2019a pas d\xE9marr\xE9 : ${error2.message}. Appuyez sur \xAB Relancer l\u2019\xE9coute \xBB.` });
+      }
+    }
+    flushFinal() {
+      clearTimeout(this.finalTimer);
+      this.finalTimer = null;
+      if (!this.sessionActive || this.muted || !this.pendingFinal.length) return;
+      const text = this.pendingFinal.join(" ").slice(0, 2e3);
+      this.pendingFinal = [];
+      this.interim = "";
+      this.emit("final", { text });
+    }
+    stopRecognition() {
+      this.recognitionWanted = false;
+      clearTimeout(this.restartTimer);
+      clearTimeout(this.finalTimer);
+      this.finalTimer = null;
+      this.pendingFinal = [];
+      this.interim = "";
+      this.seenFinal.clear();
+      const recognition = this.recognition;
+      this.recognition = null;
+      this.recognitionActive = false;
+      try {
+        recognition?.abort();
+      } catch {
+      }
+      this.emit("recognition", { state: "off" });
+    }
+    resumeRecognition() {
+      this.stopRecognition();
+      this.blocked = false;
+      this.retryCount = 0;
+      this.recognitionWanted = true;
+      this.startRecognition();
+    }
+    setMuted(value) {
+      this.muted = value;
+      for (const track of this.stream?.getAudioTracks() || []) track.enabled = !value;
+      if (value) this.stopRecognition();
+      else if (this.mode === "browser" && this.sessionActive) this.resumeRecognition();
+      this.configure();
+      this.emit("microphone", { state: value ? "muted" : this.nativeOnly ? "native" : "ready" });
+    }
+    async voices() {
+      if (!this.supportsSynthesis) return [];
+      const voices = speechSynthesis.getVoices();
+      if (voices.length) return voices;
+      return new Promise((resolve) => {
+        const done = () => {
+          clearTimeout(timer);
+          speechSynthesis.removeEventListener("voiceschanged", done);
+          resolve(speechSynthesis.getVoices());
+        };
+        const timer = setTimeout(done, 1200);
+        speechSynthesis.addEventListener("voiceschanged", done);
+      });
+    }
+    async speak(text, language, id2) {
+      this.stopOutput();
+      if (!this.supportsSynthesis) {
+        this.emit("error", { message: "Synth\xE8se vocale indisponible. La r\xE9ponse de l\u2019agent est affich\xE9e en texte." });
+        return;
+      }
+      const epoch = this.outputEpoch;
+      this.currentResponseId = id2;
+      this.lastSpokenText = text;
+      this.outputPlaying = true;
+      this.configure();
+      this.emit("output", { state: "preparing", id: id2 });
+      const voices = await this.voices();
+      if (epoch !== this.outputEpoch) return;
+      const prefix = language.split("-")[0];
+      const voice2 = voices.find((v) => v.lang.toLowerCase() === language.toLowerCase()) || voices.find((v) => v.lang.toLowerCase().startsWith(prefix));
+      if (voices.length && !voice2 && prefix === "ar") {
+        this.endOutput(epoch);
+        this.emit("error", { message: "Aucune voix arabe install\xE9e sur ce t\xE9l\xE9phone. La r\xE9ponse reste en texte. Essayez Fran\xE7ais pour v\xE9rifier le son ; une voix ar-TN n\u2019est pas garantie en mode gratuit." });
+        return;
+      }
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = voice2?.lang || language;
+      if (voice2) utterance.voice = voice2;
+      utterance.rate = 0.98;
+      utterance.volume = 1;
+      let started = false;
+      utterance.onstart = () => {
+        if (epoch !== this.outputEpoch) return;
+        started = true;
+        this.emit("output", { state: "speaking", id: id2, voice: voice2?.name || "Voix syst\xE8me" });
+      };
+      utterance.onboundary = (event) => {
+        if (epoch === this.outputEpoch) this.emit("boundary", { id: id2, index: event.charIndex });
+      };
+      utterance.onend = () => this.endOutput(epoch);
+      utterance.onerror = (event) => {
+        if (epoch !== this.outputEpoch) return;
+        this.endOutput(epoch);
+        if (!["interrupted", "canceled"].includes(event.error)) this.emit("error", { message: `La voix n\u2019a pas \xE9t\xE9 lue (${event.error}). Testez le son et v\xE9rifiez le volume multim\xE9dia.` });
+      };
+      speechSynthesis.cancel();
+      speechSynthesis.speak(utterance);
+      this.outputStartTimer = setTimeout(() => {
+        if (epoch === this.outputEpoch && !started) {
+          this.stopOutput();
+          this.emit("error", { message: "La lecture vocale n\u2019a pas d\xE9marr\xE9. Appuyez sur \xAB Tester le son \xBB, v\xE9rifiez le volume puis red\xE9marrez." });
+        }
+      }, 4500);
+      this.outputMaxTimer = setTimeout(() => {
+        if (epoch === this.outputEpoch && this.outputPlaying) {
+          this.stopOutput();
+          this.emit("notice", { message: "Lecture bloqu\xE9e ou trop longue : arr\xEAt de s\xE9curit\xE9. Le micro reste actif." });
+        }
+      }, Math.max(25e3, text.length * 160));
+    }
+    beginAudio(id2, audioId, sampleRate) {
+      this.stopOutput();
+      this.currentResponseId = id2;
+      this.currentAudioId = audioId;
+      this.audioRate = sampleRate;
+      this.audioDone = false;
+      this.nextAudioTime = 0;
+      this.outputPlaying = true;
+      this.configure();
+      this.emit("output", { state: "preparing", id: id2 });
+    }
+    queuePCM(buffer, audioId) {
+      if (!this.context || !this.outputPlaying || audioId !== this.currentAudioId || buffer.byteLength < 2 || buffer.byteLength % 2) return;
+      const epoch = this.outputEpoch, pcm = new DataView(buffer);
+      const audio = this.context.createBuffer(1, buffer.byteLength / 2, this.audioRate), data = audio.getChannelData(0);
+      for (let i = 0; i < data.length; i++) data[i] = pcm.getInt16(i * 2, true) / 32768;
+      const source = this.context.createBufferSource();
+      source.buffer = audio;
+      source.connect(this.context.destination);
+      this.nextAudioTime = Math.max(this.context.currentTime + 0.04, this.nextAudioTime);
+      if (this.nextAudioTime - this.context.currentTime > 120) {
+        this.stopOutput();
+        this.emit("error", { message: "Trop d\u2019audio en attente. Lecture interrompue." });
+        return;
+      }
+      this.sources.add(source);
+      source.onended = () => {
+        this.sources.delete(source);
+        if (epoch === this.outputEpoch && this.audioDone && !this.sources.size) this.endOutput(epoch);
+      };
+      source.start(this.nextAudioTime);
+      this.nextAudioTime += audio.duration;
+      this.emit("output", { state: "speaking", id: this.currentResponseId });
+    }
+    finishAudio(audioId) {
+      if (audioId !== this.currentAudioId) return;
+      this.audioDone = true;
+      if (!this.sources.size) this.endOutput(this.outputEpoch);
+    }
+    endOutput(epoch) {
+      if (epoch !== this.outputEpoch) return;
+      clearTimeout(this.outputStartTimer);
+      clearTimeout(this.outputMaxTimer);
+      this.outputPlaying = false;
+      this.lastOutputEnd = Date.now();
+      this.configure();
+      this.emit("output", { state: "idle", id: this.currentResponseId });
+    }
+    stopOutput() {
+      const id2 = this.currentResponseId, wasPlaying = this.outputPlaying;
+      this.outputEpoch += 1;
+      clearTimeout(this.outputStartTimer);
+      clearTimeout(this.outputMaxTimer);
+      if (this.supportsSynthesis) speechSynthesis.cancel();
+      for (const source of this.sources) {
+        source.onended = null;
+        try {
+          source.stop();
+        } catch {
+        }
+      }
+      this.sources.clear();
+      this.nextAudioTime = 0;
+      this.currentAudioId = null;
+      this.audioDone = true;
+      this.outputPlaying = false;
+      if (wasPlaying) this.lastOutputEnd = Date.now();
+      this.configure();
+      if (wasPlaying) this.emit("output", { state: "interrupted", id: id2 });
+    }
+    testSound() {
+      this.unlock();
+      if (!this.context) throw new Error("Lecture audio indisponible.");
+      const oscillator = this.context.createOscillator(), gain = this.context.createGain();
+      oscillator.connect(gain);
+      gain.connect(this.context.destination);
+      oscillator.frequency.value = 660;
+      gain.gain.value = 0.12;
+      oscillator.start();
+      oscillator.stop(this.context.currentTime + 0.28);
+      return this.context.resume();
+    }
+    closeMicrophone({ keepRecognition = false } = {}) {
+      this.captureEpoch += 1;
+      this.nativeOnly = keepRecognition;
+      if (!keepRecognition) this.stopRecognition();
+      if (this.node?.port) {
+        this.node.port.onmessage = null;
+        this.node.port.close?.();
+      }
+      if (this.node && "onaudioprocess" in this.node) this.node.onaudioprocess = null;
+      try {
+        this.source?.disconnect();
+        this.node?.disconnect();
+        this.silentGain?.disconnect();
+      } catch {
+      }
+      for (const track of this.stream?.getTracks() || []) {
+        track.onended = null;
+        track.stop();
+      }
+      this.stream = null;
+      this.source = null;
+      this.node = null;
+      this.streamingReady = false;
+      this.emit("level", { rms: 0 });
+      this.emit("microphone", { state: keepRecognition ? "native" : "off" });
+    }
+    stop() {
+      this.sessionActive = false;
+      this.closeMicrophone();
+      this.stopOutput();
+      this.context?.close().catch(() => {
+      });
+      this.context = null;
+      this.workletLoaded = false;
+      this.primed = false;
+    }
+  };
+
+  // public/assets/transport.js
+  var id = (prefix) => `${prefix}-${globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`}`;
+  var Transport = class extends EventTarget {
+    message(data) {
+      this.dispatchEvent(new CustomEvent("message", { detail: data }));
+    }
+  };
+  var LocalTransport = class extends Transport {
+    constructor(database, onChange = () => {
+    }) {
+      super();
+      this.engine = new OrderEngine(database);
+      this.onChange = onChange;
+    }
+    async start({ orderId, language }) {
+      this.session = this.engine.session(orderId, language);
+      this.ready = true;
+      this.message({ type: "session_ready", mode: "browser", state: this.session, order: this.engine.view(orderId) });
+      const result = this.engine.greeting(this.session);
+      this.message({ type: "assistant", id: id("a"), ...result });
+    }
+    user(text, messageId) {
+      if (!this.ready) throw new Error("Conversation non d\xE9marr\xE9e.");
+      const result = this.engine.turn(this.session, text);
+      if (result.changed) this.onChange(this.engine.db);
+      this.message({ type: "user_final", id: messageId, text });
+      this.message({ type: "assistant", id: id("a"), ...result });
+    }
+    interrupt() {
+    }
+    setAudio() {
+    }
+    sendAudio() {
+      return false;
+    }
+    close() {
+      this.ready = false;
+    }
+  };
+  var SocketTransport = class extends Transport {
+    constructor(voicePath = "voice") {
+      super();
+      this.voicePath = voicePath;
+      this.intentionalClose = false;
+    }
+    start(options) {
+      const url = new URL(this.voicePath, document.baseURI);
+      url.protocol = location.protocol === "https:" ? "wss:" : "ws:";
+      this.socket = new WebSocket(url);
+      this.socket.binaryType = "arraybuffer";
+      const socket = this.socket;
+      return new Promise((resolve, reject) => {
+        this.rejectStart = reject;
+        this.startTimer = setTimeout(() => {
+          reject(new Error("Le serveur vocal n\u2019a pas r\xE9pondu \xE0 temps. R\xE9essayez ; un h\xE9bergement gratuit peut \xEAtre en veille."));
+          this.close();
+        }, 22e3);
+        socket.onopen = () => {
+          if (!this.intentionalClose) socket.send(JSON.stringify({ type: "start", ...options }));
+        };
+        socket.onmessage = ({ data }) => {
+          if (this.intentionalClose) return;
+          if (typeof data !== "string") {
+            this.message({ type: "audio", buffer: data });
+            return;
+          }
+          let message;
+          try {
+            message = JSON.parse(data);
+          } catch {
+            return;
+          }
+          if (message.type === "session_ready") {
+            clearTimeout(this.startTimer);
+            this.ready = true;
+            this.rejectStart = null;
+            this.message(message);
+            resolve();
+            return;
+          }
+          if (message.type === "error" && !this.ready) {
+            clearTimeout(this.startTimer);
+            reject(new Error(message.message));
+          }
+          this.message(message);
+        };
+        socket.onerror = () => {
+          if (!this.ready) {
+            clearTimeout(this.startTimer);
+            reject(new Error("Connexion au serveur impossible. V\xE9rifiez l\u2019URL HTTPS et le d\xE9ploiement Node, pas GitHub Pages pour le streaming."));
+          }
+        };
+        socket.onclose = (event) => {
+          clearTimeout(this.startTimer);
+          const wasReady = this.ready;
+          this.ready = false;
+          if (this.intentionalClose) return;
+          if (!wasReady) {
+            reject(new Error("Connexion ferm\xE9e avant que la conversation soit pr\xEAte."));
+            return;
+          }
+          this.message({ type: "disconnected", code: event.code, message: event.code === 4008 ? "Les commandes de d\xE9mo ont \xE9t\xE9 r\xE9initialis\xE9es." : "Connexion ferm\xE9e. Appuyez sur D\xE9marrer pour reprendre. Aucun red\xE9marrage silencieux." });
+        };
+      });
+    }
+    send(message) {
+      if (!this.ready || this.socket?.readyState !== WebSocket.OPEN) throw new Error("Connexion non pr\xEAte. Red\xE9marrez la conversation.");
+      this.socket.send(JSON.stringify(message));
+    }
+    user(text, id2) {
+      this.send({ type: "user", text, id: id2 });
+    }
+    interrupt() {
+      if (this.ready) {
+        try {
+          this.send({ type: "interrupt" });
+        } catch {
+        }
+      }
+    }
+    setAudio(enabled) {
+      if (this.ready) {
+        try {
+          this.send({ type: "set_audio", enabled });
+        } catch {
+        }
+      }
+    }
+    sendAudio(buffer) {
+      if (!this.ready || this.socket?.readyState !== WebSocket.OPEN) return false;
+      if (this.socket.bufferedAmount > 256 * 1024) return false;
+      try {
+        this.socket.send(buffer);
+        return true;
+      } catch {
+        return false;
+      }
+    }
+    close() {
+      this.intentionalClose = true;
+      clearTimeout(this.startTimer);
+      this.rejectStart?.(new Error("D\xE9marrage interrompu."));
+      this.rejectStart = null;
+      if (this.socket?.readyState === WebSocket.OPEN) this.socket.send(JSON.stringify({ type: "stop" }));
+      this.socket?.close();
+      this.ready = false;
+    }
+  };
+
+  // public/assets/app.js
+  var $ = (id2) => document.getElementById(id2);
+  var voice = new VoiceIO();
+  var base = new URL("./", document.baseURI);
+  var storageKey = `ordely:v10:${base.pathname}`;
+  var uid = (prefix) => `${prefix}-${globalThis.crypto?.randomUUID?.() || `${Date.now()}-${Math.random().toString(16).slice(2)}`}`;
+  var seed;
+  var localDatabase;
+  var localEngine;
+  var transport;
+  var config = { backend: false, modes: { browser: true, streaming: false } };
+  var running = false;
+  var starting = false;
+  var initialized = false;
+  var ticket = 0;
+  var activeMode = "browser";
+  var liveUserId = null;
+  var recognitionState = "off";
+  var testingMic = false;
+  var micTestTimer;
+  var wakeLock;
+  var userSpeaking = false;
+  var sessionStorageOK = true;
+  var lastStreamDrop = 0;
+  var entries = /* @__PURE__ */ new Map();
+  var suppressed = /* @__PURE__ */ new Set();
+  var ignoredAudio = /* @__PURE__ */ new Set();
+  var events = [];
+  var statusLabels = { NEW: "\xC0 CONFIRMER", CONFIRMED: "CONFIRM\xC9E", CANCELLED: "ANNUL\xC9E", CALLBACK_REQUESTED: "RAPPEL DEMAND\xC9" };
+  function log(message) {
+    events.push(`${(/* @__PURE__ */ new Date()).toLocaleTimeString("fr-FR")}  ${message}`);
+    if (events.length > 18) events.shift();
+    $("eventLog").textContent = events.join("\n");
+  }
+  function setStatus(title, detail = "", state = "ready") {
+    $("status").textContent = title;
+    $("statusDetail").textContent = detail;
+    $("statusDot").dataset.state = state;
+  }
+  function error(message) {
+    $("errorText").textContent = message;
+    $("errorBox").hidden = false;
+    log(message);
+  }
+  function listeningStatus() {
+    if (!running) return;
+    if (voice.muted) return setStatus("Micro coup\xE9", "Activez le micro pour reparler ; les messages texte restent disponibles.");
+    if (activeMode === "streaming" && voice.stream) return setStatus("\xC0 vous \u2014 Ordely \xE9coute", "Parlez sans bouton. Votre transcription appara\xEEtra au fil de la reconnaissance.", "listening");
+    if (voice.recognitionActive && !voice.blocked) return setStatus("\xC0 vous \u2014 Ordely \xE9coute", "Parlez sans bouton. Vous pouvez aussi interrompre la prochaine r\xE9ponse.", "listening");
+    if (voice.stream && ["starting", "restarting"].includes(recognitionState)) return setStatus("Micro ouvert \u2014 reconnaissance en d\xE9marrage", "La barre mesure le micro ; attendez que la reconnaissance indique \xC9COUTE.", "starting");
+    setStatus("Conversation en texte disponible", "La reconnaissance n\u2019est pas active. Relancez l\u2019\xE9coute ou utilisez le champ texte.");
+  }
+  function renderOrder(order) {
+    const customer = order.customer;
+    $("customerName").textContent = customer.name;
+    $("customerPhone").textContent = customer.phone;
+    $("customerInitials").textContent = customer.name.split(" ").slice(0, 2).map((x) => x[0]).join("");
+    $("address").textContent = customer.address;
+    $("altPhone").textContent = customer.altPhone || "Non renseign\xE9";
+    $("orderState").textContent = statusLabels[order.status] || order.status;
+    $("total").replaceChildren(document.createTextNode(order.total.toLocaleString("fr-FR") + " "));
+    const unit = document.createElement("small");
+    unit.textContent = "DT";
+    $("total").append(unit);
+    $("products").replaceChildren();
+    for (const item of order.items) {
+      const row = document.createElement("div");
+      row.className = "product";
+      const icon = document.createElement("span");
+      icon.className = "product-icon";
+      icon.textContent = /casque/i.test(item.product.name) ? "\u25C9" : /sneakers/i.test(item.product.name) ? "\u2197" : "\u25AF";
+      const details = document.createElement("div"), name = document.createElement("strong"), description = document.createElement("small");
+      name.textContent = item.product.name;
+      description.textContent = `${item.variant || ""}${item.size ? ` \xB7 taille ${item.size}` : ""} \xB7 quantit\xE9 ${item.qty}`;
+      details.append(name, description);
+      row.append(icon, details);
+      $("products").append(row);
+    }
+  }
+  function bubble(role, text, id2 = uid(role), partial = false) {
+    let entry = entries.get(id2);
+    const nearBottom = $("chat").scrollHeight - $("chat").scrollTop - $("chat").clientHeight < 90;
+    if (!entry) {
+      $("emptyChat")?.remove();
+      const node = document.createElement("article");
+      node.className = `message ${role}`;
+      node.dataset.id = id2;
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      const who = document.createElement("strong");
+      who.textContent = role === "user" ? "VOUS" : role === "assistant" ? "ORDELY" : "INFORMATION";
+      const state = document.createElement("span");
+      state.className = "message-state";
+      const time = document.createElement("time");
+      time.textContent = (/* @__PURE__ */ new Date()).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+      time.dateTime = (/* @__PURE__ */ new Date()).toISOString();
+      meta.append(who, state, time);
+      const body = document.createElement("div");
+      body.className = "message-body";
+      body.dir = "auto";
+      node.append(meta, body);
+      $("chat").append(node);
+      entry = { id: id2, role, text: "", node, body, state, time: time.dateTime, partial, interrupted: false };
+      entries.set(id2, entry);
+    }
+    entry.text = text;
+    entry.partial = partial;
+    entry.body.textContent = text;
+    entry.node.classList.toggle("partial", partial);
+    entry.state.textContent = partial ? "Transcription en cours\u2026" : role === "user" ? "Reconnu / envoy\xE9" : role === "assistant" ? "R\xE9ponse compl\xE8te" : "";
+    if (entry.interrupted) entry.state.textContent = "Interrompu \xB7 texte de la r\xE9ponse pr\xE9vue";
+    $("export").disabled = false;
+    if (nearBottom || entries.size === 1) $("chat").scrollTop = $("chat").scrollHeight;
+    return entry;
+  }
+  function markInterrupted(id2) {
+    const entry = entries.get(id2);
+    if (!entry || entry.role !== "assistant") return;
+    entry.interrupted = true;
+    entry.node.classList.add("interrupted");
+    entry.state.textContent = "Interrompu \xB7 texte de la r\xE9ponse pr\xE9vue";
+  }
+  function updateControls() {
+    $("start").disabled = !initialized || starting || running;
+    $("start").textContent = starting ? "Connexion\u2026" : "\u25B6 D\xE9marrer";
+    $("textOnly").disabled = !initialized || starting || running;
+    $("stop").disabled = !starting && !running;
+    $("orders").disabled = !initialized || starting || running;
+    $("mode").disabled = starting || running;
+    $("language").disabled = starting || running;
+    $("send").disabled = !initialized || starting;
+    $("testMic").disabled = starting || running;
+    $("testSound").disabled = false;
+    $("micToggle").disabled = !running;
+    $("micToggle").textContent = voice.stream || voice.nativeOnly ? voice.muted ? "Activer" : "Couper" : "Activer micro";
+    $("resumeListening").disabled = !running || activeMode !== "browser" || !voice.stream && !voice.nativeOnly || voice.muted;
+  }
+  function refreshDiagnostics() {
+    const rows = [
+      ["Version", "10.0.0 \xB7 correction du 01/10/2026"],
+      ["Contexte HTTPS", window.isSecureContext ? "Oui (ou localhost autoris\xE9)" : "Non \u2014 micro bloqu\xE9 sur t\xE9l\xE9phone"],
+      ["Reconnaissance native", voice.supportsRecognition ? "API pr\xE9sente ; service/langue \xE0 v\xE9rifier par un vrai essai" : "Absente \u2014 mode texte ou serveur streaming"],
+      ["Synth\xE8se native", voice.supportsSynthesis ? "API pr\xE9sente ; voix install\xE9es selon l\u2019appareil" : "Absente \u2014 r\xE9ponse texte"],
+      ["Capture", voice.nativeOnly ? "Micro du service natif, mesure RMS/VAD d\xE9sactiv\xE9e (compatibilit\xE9 t\xE9l\xE9phone)" : voice.stream ? voice.muted ? "P\xE9riph\xE9rique ouvert, transmission coup\xE9e" : "Micro ouvert, pas d\u2019enregistrement conserv\xE9" : "Arr\xEAt\xE9e"],
+      ["Reconnaissance", recognitionState],
+      ["Connexion", config.backend ? transport?.ready ? "WebSocket pr\xEAt" : "Backend Node d\xE9tect\xE9" : "Autonome \u2014 aucune connexion au serveur Ordely"],
+      ["Persistance", config.backend ? "Base JSON de d\xE9monstration sur le serveur" : sessionStorageOK ? "Ce navigateur (localStorage)" : "M\xE9moire seulement (stockage bloqu\xE9)"],
+      ["Streaming facultatif", config.modes.streaming ? "Configur\xE9 c\xF4t\xE9 serveur \u2014 services externes" : "D\xE9sactiv\xE9 ; aucune cl\xE9 requise pour le mode gratuit"],
+      ["R\xE9seau", navigator.onLine ? "Connect\xE9 (le service vocal peut n\xE9anmoins \xEAtre indisponible)" : "Hors ligne \u2014 reconnaissance vocale non garantie"],
+      ["Appareil", navigator.userAgent]
+    ];
+    $("diagnosticList").replaceChildren();
+    for (const [label, value] of rows) {
+      const dt = document.createElement("dt"), dd = document.createElement("dd");
+      dt.textContent = label;
+      dd.textContent = value;
+      $("diagnosticList").append(dt, dd);
+    }
+  }
+  function storeDatabase(database) {
+    localDatabase = database;
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(database));
+    } catch {
+      sessionStorageOK = false;
+      log("Stockage local indisponible : modifications valables pour cette page seulement.");
+    }
+    refreshDiagnostics();
+  }
+  async function requestJSON(relative, options = {}) {
+    const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 5e3);
+    try {
+      const response = await fetch(new URL(relative, base), { cache: "no-store", ...options, signal: controller.signal });
+      if (!response.ok || !response.headers.get("content-type")?.includes("application/json")) throw new Error(`Service indisponible (${response.status}).`);
+      return await response.json();
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+  async function loadOrders(selected) {
+    const list = config.backend ? await requestJSON("api/orders") : localEngine.list();
+    $("orders").replaceChildren();
+    for (const order of list) {
+      const option = document.createElement("option");
+      option.value = order.id;
+      option.textContent = `${order.customer} \xB7 ${order.total.toLocaleString("fr-FR")} DT`;
+      $("orders").append(option);
+    }
+    if (selected && list.some((o) => o.id === selected)) $("orders").value = selected;
+    await showSelectedOrder();
+  }
+  async function showSelectedOrder() {
+    try {
+      renderOrder(config.backend ? await requestJSON(`api/orders/${encodeURIComponent($("orders").value)}`) : localEngine.view($("orders").value));
+    } catch (fault) {
+      error(fault.message);
+    }
+  }
+  function transcriptId(message) {
+    return message.id?.startsWith("stt-") ? `session-${ticket}-${message.id}` : message.id || liveUserId || uid("u");
+  }
+  function handleMessage(message) {
+    if (message.type === "session_ready") {
+      running = true;
+      starting = false;
+      activeMode = message.mode;
+      voice.enableListening(activeMode, $("language").value);
+      if (activeMode === "streaming") voice.setStreamingReady(true);
+      renderOrder(message.order);
+      updateControls();
+      refreshDiagnostics();
+      log(`Session pr\xEAte \xB7 ${activeMode} \xB7 ${$("language").value}`);
+      listeningStatus();
+      return;
+    }
+    if (message.type === "assistant") {
+      bubble("assistant", message.text, message.id);
+      if (message.order) renderOrder(message.order);
+      userSpeaking = false;
+      if (activeMode === "browser" && $("voiceEnabled").checked && !suppressed.has(message.id)) void voice.speak(message.text, $("language").value, message.id);
+      else listeningStatus();
+      return;
+    }
+    if (message.type === "user_interim") {
+      liveUserId = transcriptId(message);
+      bubble("user", message.text, liveUserId, true);
+      setStatus("Vous parlez\u2026", "Texte provisoire : il sera remplac\xE9 par la transcription finale.", "listening");
+      return;
+    }
+    if (message.type === "user_final") {
+      const id2 = transcriptId(message);
+      bubble("user", message.text, id2, false);
+      if (liveUserId === id2) liveUserId = null;
+      userSpeaking = false;
+      return;
+    }
+    if (message.type === "user_speaking") {
+      onSpeechStart("service-STT");
+      return;
+    }
+    if (message.type === "interrupted") {
+      suppressed.add(message.id);
+      markInterrupted(message.id);
+      if (voice.currentResponseId === message.id) voice.stopOutput();
+      return;
+    }
+    if (message.type === "audio_begin") {
+      if (!running || !$("voiceEnabled").checked || suppressed.has(message.id)) {
+        ignoredAudio.add(message.audioId);
+        return;
+      }
+      voice.beginAudio(message.id, message.audioId, message.sampleRate);
+      return;
+    }
+    if (message.type === "audio") {
+      if (message.buffer.byteLength < 6) return;
+      const audioId = new DataView(message.buffer).getUint32(0, true);
+      if (!ignoredAudio.has(audioId)) voice.queuePCM(message.buffer.slice(4), audioId);
+      return;
+    }
+    if (message.type === "audio_done") {
+      voice.finishAudio(message.audioId);
+      return;
+    }
+    if (message.type === "error") {
+      error(message.message);
+      return;
+    }
+    if (message.type === "disconnected") {
+      stopSession();
+      error(message.message);
+      setStatus("Connexion interrompue", "Le micro et la lecture ont \xE9t\xE9 arr\xEAt\xE9s. D\xE9marrez pour reprendre.", "error");
+    }
+  }
+  async function startSession({ textOnly = false } = {}) {
+    if (running || starting || !initialized) return;
+    voice.unlock();
+    clearTimeout(micTestTimer);
+    if (testingMic) {
+      testingMic = false;
+      voice.closeMicrophone();
+      $("testMic").textContent = "\u{1F399} Tester le micro";
+    }
+    const currentTicket = ++ticket;
+    starting = true;
+    activeMode = textOnly ? "browser" : $("mode").value;
+    $("errorBox").hidden = true;
+    updateControls();
+    setStatus(textOnly ? "D\xE9marrage en texte\u2026" : "Ouverture du micro\u2026", textOnly ? "Le micro reste \xE9teint. La lecture vocale est facultative." : "Autorisez le micro dans la fen\xEAtre du navigateur.", "starting");
+    try {
+      if (!textOnly) {
+        try {
+          await voice.openMicrophone();
+        } catch (fault) {
+          if (currentTicket !== ticket) return;
+          error(fault.message);
+          if (activeMode === "streaming") throw new Error("Le streaming n\xE9cessite un micro autoris\xE9. Essayez le mode texte ou le mode gratuit.");
+          log("Conversation gratuite maintenue en texte malgr\xE9 le micro indisponible.");
+        }
+      }
+      if (currentTicket !== ticket) return;
+      if (entries.size) bubble("system", "Nouvelle session de d\xE9monstration.");
+      suppressed.clear();
+      ignoredAudio.clear();
+      liveUserId = null;
+      setStatus("D\xE9marrage de la conversation\u2026", config.backend ? "Attente de l\u2019accus\xE9 de r\xE9ception du serveur, puis Ordely commence." : "Mode autonome : Ordely commence, sans serveur ni cl\xE9.", "starting");
+      const connect = async (candidate) => {
+        transport = candidate;
+        candidate.addEventListener("message", ({ detail }) => {
+          if (ticket === currentTicket && transport === candidate) handleMessage(detail);
+        });
+        await candidate.start({ orderId: $("orders").value, language: $("language").value, mode: activeMode, voiceEnabled: $("voiceEnabled").checked });
+      };
+      let effectiveBackend = false;
+      if (config.backend) {
+        try {
+          await connect(new SocketTransport(config.voicePath));
+          effectiveBackend = true;
+        } catch (fault) {
+          if (currentTicket !== ticket) return;
+          log(`Serveur vocal injoignable (${fault.message}) : bascule autonome.`);
+          error(`Serveur vocal injoignable : ${fault.message} La conversation continue en mode gratuit, avec les commandes enregistr\xE9es sur cet appareil.`);
+          if (activeMode === "streaming") {
+            activeMode = "browser";
+            log("Le mode streaming exige le serveur : il est remplac\xE9 par le mode gratuit.");
+          }
+          await connect(new LocalTransport(localDatabase, storeDatabase));
+        }
+      } else await connect(new LocalTransport(localDatabase, storeDatabase));
+      if (currentTicket !== ticket) return;
+      $("sessionMode").textContent = activeMode === "streaming" ? "Streaming \xB7 STT et TTS externes" : effectiveBackend ? "Gratuit \xB7 voix navigateur, commandes serveur" : "Gratuit \xB7 voix navigateur, commandes sur ce t\xE9l\xE9phone";
+      if (navigator.wakeLock?.request) navigator.wakeLock.request("screen").then((lock) => {
+        if (ticket === currentTicket && running) wakeLock = lock;
+        else lock.release();
+      }).catch(() => {
+      });
+    } catch (fault) {
+      if (currentTicket !== ticket) return;
+      stopSession();
+      error(fault.message);
+      setStatus("D\xE9marrage impossible", "Le micro est arr\xEAt\xE9. Corrigez le diagnostic puis r\xE9essayez.", "error");
+    } finally {
+      if (currentTicket === ticket) {
+        starting = false;
+        updateControls();
+        refreshDiagnostics();
+      }
+    }
+  }
+  function stopSession() {
+    ticket += 1;
+    starting = false;
+    running = false;
+    userSpeaking = false;
+    clearTimeout(micTestTimer);
+    testingMic = false;
+    transport?.close();
+    transport = null;
+    voice.stop();
+    wakeLock?.release().catch(() => {
+    });
+    wakeLock = null;
+    if (liveUserId && entries.has(liveUserId)) {
+      const entry = entries.get(liveUserId);
+      entry.state.textContent = "Non finalis\xE9 \xB7 session arr\xEAt\xE9e";
+    }
+    liveUserId = null;
+    $("testMic").textContent = "\u{1F399} Tester le micro";
+    updateControls();
+    refreshDiagnostics();
+    setStatus("Arr\xEAt\xE9 \u2014 micro lib\xE9r\xE9", "Vous pouvez d\xE9marrer une nouvelle session. Les modifications d\xE9j\xE0 valid\xE9es sont conserv\xE9es.");
+    log("Session arr\xEAt\xE9e \xB7 micro et audio lib\xE9r\xE9s.");
+  }
+  function onSpeechStart(source) {
+    if (!running || voice.muted) return;
+    userSpeaking = true;
+    if (voice.outputPlaying && $("bargeIn").checked) {
+      const id2 = voice.currentResponseId;
+      suppressed.add(id2);
+      markInterrupted(id2);
+      voice.stopOutput();
+      transport?.interrupt();
+      setStatus("Agent interrompu \u2014 je vous \xE9coute", "Continuez votre phrase. Le contexte de la commande est conserv\xE9.", "listening");
+      log(`Interruption \xB7 ${source} \xB7 reconnaissance maintenue.`);
+    }
+    if (!liveUserId && activeMode === "browser" && voice.recognitionWanted) {
+      liveUserId = uid("u");
+      bubble("user", "Voix d\xE9tect\xE9e \u2014 transcription en attente\u2026", liveUserId, true);
+    }
+  }
+  async function submitText(text, fromVoice = false) {
+    if (!text?.trim()) return;
+    if (!running) {
+      if (fromVoice) return;
+      await startSession({ textOnly: true });
+    }
+    if (!running || !transport?.ready) {
+      error("La conversation n\u2019est pas pr\xEAte. R\xE9essayez apr\xE8s le d\xE9marrage.");
+      return;
+    }
+    if (!fromVoice) {
+      clearTimeout(voice.finalTimer);
+      voice.finalTimer = null;
+      voice.pendingFinal = [];
+      voice.interim = "";
+    }
+    const id2 = liveUserId || uid("u");
+    liveUserId = null;
+    if (voice.outputPlaying) {
+      suppressed.add(voice.currentResponseId);
+      markInterrupted(voice.currentResponseId);
+    }
+    voice.stopOutput();
+    transport.interrupt();
+    bubble("user", text.trim(), id2, false);
+    userSpeaking = false;
+    setStatus("Ordely pr\xE9pare sa r\xE9ponse\u2026", "La phrase finale est envoy\xE9e au moteur de commande.", "starting");
+    try {
+      transport.user(text.trim(), id2);
+    } catch (fault) {
+      error(fault.message);
+      const entry = entries.get(id2);
+      entry.state.textContent = "\xC9chec de l\u2019envoi";
+      listeningStatus();
+    }
+  }
+  voice.addEventListener("level", ({ detail }) => {
+    const level = Math.min(100, Math.round(detail.rms * 500));
+    $("meterFill").style.width = `${level}%`;
+    $("meter").setAttribute("aria-valuenow", String(level));
+  });
+  voice.addEventListener("microphone", ({ detail }) => {
+    const ready = detail.state === "ready";
+    $("captureStatus").textContent = ready ? "ON" : detail.state === "native" ? "NATIF" : detail.state === "muted" ? "COUP\xC9" : "OFF";
+    $("micLabel").textContent = ready ? testingMic ? "Test micro \xB7 aucun envoi" : "Micro ouvert" : detail.state === "native" ? "Micro natif \xB7 mesure d\xE9sactiv\xE9e" : detail.state === "muted" ? "Micro coup\xE9" : "Micro d\xE9sactiv\xE9";
+    if (detail.device) log(`Micro : ${detail.device}`);
+    updateControls();
+    refreshDiagnostics();
+  });
+  voice.addEventListener("recognition", ({ detail }) => {
+    recognitionState = detail.state;
+    const labels = { starting: "D\xC9MARRAGE", listening: "\xC9COUTE", restarting: "RELANCE", streaming: "STREAMING", text: "TEXTE", unavailable: "ABSENTE", blocked: "BLOQU\xC9E", muted: "COUP\xC9E", off: "OFF" };
+    $("recognitionStatus").textContent = labels[detail.state] || detail.state;
+    if (running && !voice.outputPlaying && !userSpeaking) listeningStatus();
+    refreshDiagnostics();
+    updateControls();
+  });
+  voice.addEventListener("speech_start", ({ detail }) => onSpeechStart(detail.source));
+  voice.addEventListener("speech_end", () => {
+    userSpeaking = false;
+  });
+  voice.addEventListener("interim", ({ detail }) => {
+    if (!running) return;
+    liveUserId ||= uid("u");
+    bubble("user", detail.text, liveUserId, true);
+    setStatus("Vous parlez\u2026", "La transcription provisoire est mise \xE0 jour ; la r\xE9ponse suit la fin de votre phrase.", "listening");
+  });
+  voice.addEventListener("final", ({ detail }) => {
+    if (running) void submitText(detail.text, true);
+  });
+  voice.addEventListener("pcm", ({ detail }) => {
+    if (!running || activeMode !== "streaming") return;
+    if (!transport?.sendAudio(detail.buffer) && Date.now() - lastStreamDrop > 5e3) {
+      lastStreamDrop = Date.now();
+      error("R\xE9seau audio satur\xE9. Des blocs du micro n\u2019ont pas \xE9t\xE9 envoy\xE9s. V\xE9rifiez la connexion.");
+    }
+  });
+  voice.addEventListener("output", ({ detail }) => {
+    const labels = { preparing: "PR\xC9PARE", speaking: "PARLE", idle: "SILENCIEUX", interrupted: "INTERROMPU" };
+    $("outputStatus").textContent = labels[detail.state] || detail.state;
+    const entry = entries.get(detail.id);
+    if (entry && !entry.interrupted) entry.state.textContent = detail.state === "speaking" ? "En lecture \xB7 r\xE9ponse compl\xE8te" : detail.state === "preparing" ? "Pr\xE9paration du son \xB7 r\xE9ponse compl\xE8te" : "R\xE9ponse compl\xE8te";
+    if (detail.state === "interrupted") markInterrupted(detail.id);
+    if (["preparing", "speaking"].includes(detail.state)) setStatus("Ordely vous r\xE9pond\u2026", "Le texte est d\xE9j\xE0 affich\xE9. Vous pouvez parler pour interrompre.", "agent");
+    else if (running && !userSpeaking) listeningStatus();
+  });
+  voice.addEventListener("boundary", ({ detail }) => {
+    const entry = entries.get(detail.id);
+    if (entry) entry.node.dataset.spokenCharacters = String(detail.index);
+  });
+  voice.addEventListener("error", ({ detail }) => error(detail.message));
+  voice.addEventListener("notice", ({ detail }) => log(detail.message));
+  $("start").addEventListener("click", () => void startSession());
+  $("textOnly").addEventListener("click", () => void startSession({ textOnly: true }));
+  $("stop").addEventListener("click", stopSession);
+  $("orders").addEventListener("change", () => void showSelectedOrder());
+  $("dismissError").addEventListener("click", () => {
+    $("errorBox").hidden = true;
+  });
+  $("send").addEventListener("click", () => {
+    const text = $("input").value;
+    if (!text.trim()) return;
+    $("input").value = "";
+    void submitText(text);
+  });
+  $("input").addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && !event.shiftKey) {
+      event.preventDefault();
+      $("send").click();
+    }
+  });
+  for (const button of document.querySelectorAll(".example")) button.addEventListener("click", () => {
+    $("input").value = button.dataset.text;
+    $("input").focus();
+  });
+  $("sensitivity").addEventListener("input", () => {
+    voice.threshold = Number($("sensitivity").value);
+    $("thresholdValue").textContent = voice.threshold.toFixed(3).replace(".", ",");
+    voice.configure();
+  });
+  $("voiceEnabled").addEventListener("change", () => {
+    voice.unlock();
+    if (!$("voiceEnabled").checked) voice.stopOutput();
+    transport?.setAudio($("voiceEnabled").checked);
+  });
+  $("testSound").addEventListener("click", () => {
+    try {
+      voice.testSound().then(() => log("Bip de test lanc\xE9. V\xE9rifiez que vous l\u2019entendez."));
+    } catch (fault) {
+      error(fault.message);
+    }
+  });
+  $("testMic").addEventListener("click", async () => {
+    if (running || starting) return;
+    voice.unlock();
+    if (testingMic) {
+      clearTimeout(micTestTimer);
+      testingMic = false;
+      voice.closeMicrophone();
+      $("testMic").textContent = "\u{1F399} Tester le micro";
+      setStatus("Test micro termin\xE9", "La capture est arr\xEAt\xE9e. Vous pouvez d\xE9marrer la conversation.");
+      return;
+    }
+    testingMic = true;
+    $("testMic").textContent = "Arr\xEAter le test micro";
+    setStatus("Test du micro \u2014 parlez pendant 8 secondes", "La barre doit bouger. Ce test ne transcrit ni n\u2019enregistre votre voix.", "starting");
+    try {
+      await voice.openMicrophone();
+      if (!testingMic) return;
+      micTestTimer = setTimeout(() => {
+        if (testingMic) $("testMic").click();
+      }, 8e3);
+      log("Test micro : capture uniquement, aucune transcription demand\xE9e.");
+    } catch (fault) {
+      testingMic = false;
+      voice.closeMicrophone();
+      $("testMic").textContent = "\u{1F399} Tester le micro";
+      error(fault.message);
+      setStatus("Test micro impossible", "Consultez le message de diagnostic.", "error");
+    }
+  });
+  $("micToggle").addEventListener("click", async () => {
+    if (!running) return;
+    voice.unlock();
+    try {
+      if (!voice.stream && !voice.nativeOnly) {
+        await voice.openMicrophone();
+        if (!running) return;
+        voice.enableListening(activeMode, $("language").value);
+        voice.setStreamingReady(activeMode === "streaming");
+      } else voice.setMuted(!voice.muted);
+      listeningStatus();
+      updateControls();
+    } catch (fault) {
+      error(fault.message);
+    }
+  });
+  $("resumeListening").addEventListener("click", () => {
+    voice.unlock();
+    voice.resumeRecognition();
+  });
+  $("export").addEventListener("click", () => {
+    const text = ["Ordely V10 \u2014 transcription de d\xE9monstration", `Export : ${(/* @__PURE__ */ new Date()).toISOString()}`, "", ...Array.from(entries.values()).map((entry) => `[${entry.time}] ${entry.role === "user" ? "Vous" : entry.role === "assistant" ? "Ordely" : "Information"}${entry.partial ? " (provisoire)" : ""}${entry.interrupted ? " (interrompu ; texte pr\xE9vu)" : ""}
+${entry.text}
+`)].join("\n");
+    const url = URL.createObjectURL(new Blob([text], { type: "text/plain;charset=utf-8" }));
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `ordely-transcription-${(/* @__PURE__ */ new Date()).toISOString().slice(0, 10)}.txt`;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1e3);
+  });
+  $("reset").addEventListener("click", async () => {
+    if (!confirm("R\xE9initialiser uniquement les commandes fictives ? Les modifications de la d\xE9mo seront effac\xE9es.")) return;
+    stopSession();
+    try {
+      if (config.backend) await requestJSON("api/demo/reset", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+      else {
+        localDatabase = clone(seed);
+        localEngine = new OrderEngine(localDatabase);
+        storeDatabase(localDatabase);
+      }
+      await loadOrders();
+      log("Commandes de d\xE9mo r\xE9initialis\xE9es.");
+      bubble("system", "Commandes fictives r\xE9initialis\xE9es. D\xE9marrez pour refaire l\u2019essai.");
+    } catch (fault) {
+      error(fault.message);
+    }
+  });
+  $("reload").addEventListener("click", async () => {
+    stopSession();
+    try {
+      for (const registration of await navigator.serviceWorker?.getRegistrations?.() || []) if (registration.scope === base.href) await registration.unregister();
+      if ("caches" in window) {
+        for (const key of await caches.keys()) if (key.startsWith("ordely")) await caches.delete(key);
+      }
+    } catch {
+    }
+    location.reload();
+  });
+  window.addEventListener("online", refreshDiagnostics);
+  window.addEventListener("offline", refreshDiagnostics);
+  window.addEventListener("pagehide", () => {
+    if (running || starting || testingMic) stopSession();
+  });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && running) {
+      stopSession();
+      log("Arr\xEAt de confidentialit\xE9 : application pass\xE9e en arri\xE8re-plan.");
+    }
+  });
+  async function init() {
+    try {
+      if (window.self !== window.top) {
+        $("frameNotice").hidden = false;
+        $("standalone").href = location.href;
+      }
+      if (!window.isSecureContext) {
+        $("environmentNotice").textContent = "Le micro n\xE9cessite HTTPS sur t\xE9l\xE9phone. Utilisez l\u2019URL GitHub Pages ; ouvrir un fichier HTML ou une IP locale HTTP ne suffit pas.";
+        $("environmentNotice").hidden = false;
+      } else if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+        $("environmentNotice").textContent = "Sur iPhone, utilisez Safari et gardez l\u2019\xE9cran allum\xE9. L\u2019\xE9coute pendant la synth\xE8se vocale peut varier selon iOS. Testez avec un casque ; le bouton Relancer l\u2019\xE9coute reste disponible.";
+        $("environmentNotice").hidden = false;
+      }
+      seed = globalThis.__ORDELY_SEED__ ? clone(globalThis.__ORDELY_SEED__) : await requestJSON("demo-data.json");
+      try {
+        const saved = localStorage.getItem(storageKey);
+        localDatabase = saved ? JSON.parse(saved) : clone(seed);
+        localEngine = new OrderEngine(localDatabase);
+      } catch {
+        localDatabase = clone(seed);
+        localEngine = new OrderEngine(localDatabase);
+        sessionStorageOK = false;
+      }
+      if (!globalThis.__ORDELY_PHONE__ && !new URL(location.href).searchParams.has("local")) {
+        try {
+          const detected = await requestJSON("api/config");
+          if (detected.backend && detected.version?.startsWith("10.")) config = detected;
+        } catch {
+          log("Aucun backend Node : mode gratuit autonome s\xE9lectionn\xE9.");
+        }
+      }
+      const streamingOption = $("mode").querySelector("option[value=streaming]");
+      streamingOption.disabled = !config.modes.streaming;
+      streamingOption.textContent = config.modes.streaming ? "Streaming \xB7 services externes" : "Streaming indisponible \xB7 facultatif";
+      $("storageNote").textContent = config.backend ? "D\xE9mo partag\xE9e sur le serveur. Aucun usage production." : "Sauvegarde sur ce t\xE9l\xE9phone uniquement. Aucun appel r\xE9el.";
+      await loadOrders();
+      initialized = true;
+      if (!voice.supportsRecognition) error("Ce navigateur n\u2019expose pas la reconnaissance vocale. Sur t\xE9l\xE9phone, ouvrez le lien dans Chrome Android ou Safari iPhone. Le mode texte fonctionne.");
+      setStatus("Pr\xEAt \u2014 micro arr\xEAt\xE9", "Appuyez une fois sur D\xE9marrer, autorisez le micro, puis laissez Ordely commencer.");
+      updateControls();
+      refreshDiagnostics();
+      log("Application pr\xEAte. Aucun micro ouvert au chargement.");
+      if (!globalThis.__ORDELY_PHONE__ && "serviceWorker" in navigator && window.isSecureContext) {
+        navigator.serviceWorker.register(new URL("sw.js", base), { scope: base.pathname }).then((registration) => {
+          registration.update().catch(() => {
+          });
+        }).catch(() => log("Cache hors ligne indisponible ; le site fonctionne en ligne."));
+      }
+    } catch (fault) {
+      error(`Chargement impossible : ${fault.message}. Servez le dossier public/ en HTTP(S), ne double-cliquez pas sur index.html.`);
+      setStatus("D\xE9mo non charg\xE9e", "V\xE9rifiez la publication GitHub Pages ou le lancement npm start.", "error");
+    }
+  }
+  void init();
+})();
+
+</script>
+</body>
+</html>

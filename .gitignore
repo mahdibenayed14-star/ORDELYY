@@ -1,0 +1,10 @@
+node_modules/
+.env
+.env.*
+!.env.example
+data/database.json
+data/database.json.tmp
+playwright-report/
+test-results/
+.DS_Store
+npm-debug.log*
